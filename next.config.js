@@ -26,36 +26,12 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: `
       default-src 'self';
-      script-src 'self' 'unsafe-eval' 'unsafe-inline' 
-        *.google-analytics.com *.googletagmanager.com 
-        *.mixpanel.com *.sentry.io
-        https://vercel.live;
-      style-src 'self' 'unsafe-inline' 
-        fonts.googleapis.com 
-        https://cdn.jsdelivr.net;
-      font-src 'self' 
-        fonts.gstatic.com 
-        https://cdn.jsdelivr.net;
-      img-src 'self' data: https: blob: 
-        *.google-analytics.com 
-        *.mixpanel.com 
-        *.sentry.io
-        https://images.unsplash.com
-        *.google.com
-        *.googleapis.com;
-      connect-src 'self' 
-        *.google-analytics.com 
-        *.mixpanel.com 
-        *.sentry.io
-        https://vercel.live
-        https://api.vercel.com;
-      report-uri /api/csp-violation;
-      frame-src 'self' 
-        https://vercel.live
-        https://www.google.com
-        https://maps.google.com
-        https://www.google.com/maps
-        https://maps.googleapis.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.elfsight.com *.google-analytics.com *.googletagmanager.com *.mixpanel.com *.sentry.io https://vercel.live;
+      connect-src 'self' https://*.elfsight.com https://*.instagram.com https://api.instagram.com *.google-analytics.com *.mixpanel.com *.sentry.io https://vercel.live https://api.vercel.com;
+      frame-src https://*.elfsight.com https://*.instagram.com https://www.instagram.com https://vercel.live https://www.google.com https://maps.google.com https://www.google.com/maps https://maps.googleapis.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.elfsight.com https://www.instagram.com https://cdn.jsdelivr.net;
+      font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
+      img-src 'self' data: https: blob: https://*.elfsight.com https://*.instagram.com https://scontent.cdninstagram.com *.google-analytics.com *.mixpanel.com *.sentry.io https://images.unsplash.com *.google.com *.googleapis.com;
       object-src 'none';
       base-uri 'self';
       form-action 'self';
