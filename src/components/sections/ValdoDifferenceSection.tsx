@@ -6,17 +6,17 @@ import Image from 'next/image';
 const valdoDifferenceData = [
   {
     title: "DECADES OF FAMILY PARTNERSHIP",
-    description: "Chief Winemaker Gianfranco Zanon oversees the winemaking for Valdo working closely with the grower families of the region",
+    description: "Chief Winemaker Gianfranco Zanon leads our winemaking with regional grower families",
     image: "/images/Winemaker/Copia di Gianfranco Zanon(1).jpg",
-    caption: "Gianfranco Zanon, Chief Winemaker, representing four generations of the Bolla family's winemaking tradition",
+    caption: "Four generations of Bolla family winemaking tradition",
     alt: "Valdo Chief Winemaker Gianfranco Zanon in the vineyards of Valdobbiadene",
     link: "https://us.valdo.com/pages/prosecco-history-and-facts"
   },
   {
     title: "SUSTAINABILITY",
-    description: "Building a more responsible & equitable future",
+    description: "Building a responsible & equitable future",
     image: "/images/Sustainable/Copia di valdo-2.jpg",
-    caption: "Solar-powered facilities demonstrate Valdo's commitment to sustainable winemaking",
+    caption: "Solar-powered facilities demonstrate our commitment",
     alt: "Solar panels at Valdo winery for eco-friendly Prosecco production",
     link: "https://us.valdo.com/pages/sustainability"
   },
@@ -24,13 +24,13 @@ const valdoDifferenceData = [
     title: "VALUES",
     description: "Tradition Meets Innovation",
     image: "/images/lifestyle/_R5A4520.jpg",
-    caption: "Hand harvesting each and every grape coupled with integrating innovative techniques in the winery",
+    caption: "Hand harvesting every grape with innovative winery techniques",
     alt: "Glass of Prosecco overlooking the vineyards of Valdobbiadene",
     link: "https://us.valdo.com/collections/all"
   },
   {
     title: "PIONEER IN CUVÉE",
-    description: "First to introduce the concept of Cuvee with the gentle pressing of the grapes for Valdo's prestige wine- Numero 10",
+    description: "First to introduce Cuvee concept with gentle pressing for Numero 10",
     image: "/images/lifestyle/Copia di linea(1).jpg",
     caption: "Creating the highest quality for the Valdo family of wines",
     alt: "Valdo Numero 10 DOCG corks and quality seals",
@@ -40,7 +40,7 @@ const valdoDifferenceData = [
     title: "COMMITMENT TO QUALITY",
     description: "Excellence in every bottle",
     image: "/images/lifestyle/VALDOAMERICA2 5.jpg",
-    caption: "Only the finest grapes are selected for Valdo's award-winning Prosecco",
+    caption: "Only the finest grapes selected for award-winning Prosecco",
     alt: "Valdo's commitment to quality winemaking",
     link: "https://us.valdo.com/blogs/perlage-magazine/how-prosecco-is-made"
   },
