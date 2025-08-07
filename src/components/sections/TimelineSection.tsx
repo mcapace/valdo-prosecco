@@ -142,115 +142,200 @@ const TimelineSection = () => {
               className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent"
               style={{ y }}
             />
-
-            {/* Timeline Dots */}
-            <div className="relative flex justify-between items-center py-16">
-              {timelineData.map((item, index) => (
-                <motion.button
-                  key={item.year}
-                  className={`relative z-10 w-4 h-4 rounded-full transition-all duration-500 ${
-                    index === activeIndex ? 'bg-gold scale-125' : 'bg-gray-300 hover:bg-gold/70'
-                  }`}
-                  onClick={() => handleTimelineClick(index)}
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.9 }}
-                />
-              ))}
-            </div>
-
-            {/* Timeline Years */}
-            <div className="relative flex justify-between items-center -mt-8">
+            
+            {/* Timeline Items - Fixed positioning to always start with 1926 */}
+            <div className="relative flex justify-between items-center py-16 px-4">
               {timelineData.map((item, index) => (
                 <motion.div
                   key={item.year}
-                  className={`text-sm font-semibold transition-all duration-500 ${
-                    index === activeIndex ? 'text-gold scale-110' : 'text-gray-500'
-                  }`}
+                  className="relative flex flex-col items-center group cursor-pointer"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  onClick={() => handleTimelineClick(index)}
                 >
-                  {item.year}
+                  {/* Timeline Dot */}
+                  <motion.div 
+                    className={`w-6 h-6 rounded-full border-4 transition-all duration-500 ${
+                      activeIndex === index 
+                        ? 'bg-gold border-gold scale-125' 
+                        : 'bg-beige-light border-gold hover:scale-110'
+                    }`}
+                    whileHover={{ scale: 1.2 }}
+                  />
+                  
+                  {/* Year */}
+                  <motion.span 
+                    className={`text-sm font-medium mt-4 transition-colors duration-500 ${
+                      activeIndex === index ? 'text-gold' : 'text-gray-500'
+                    }`}
+                  >
+                    {item.year}
+                  </motion.span>
                 </motion.div>
               ))}
             </div>
-
-            {/* Content Panel */}
-            <motion.div 
-              className="mt-16 text-center"
-              key={activeIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <motion.h3 
-                className="text-2xl font-bold mb-4 text-black"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                {timelineData[activeIndex].title}
-              </motion.h3>
-              <motion.p 
-                className="text-lg text-black leading-relaxed max-w-4xl mx-auto mb-8 font-medium"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
-                {timelineData[activeIndex].description}
-              </motion.p>
-              <motion.div
-                className="flex justify-center"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                <Image
-                  src={timelineData[activeIndex].image}
-                  alt={timelineData[activeIndex].title}
-                  width={400}
-                  height={300}
-                  className="rounded-lg shadow-lg object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </motion.div>
-            </motion.div>
           </div>
+
+          {/* Content Panel */}
+          <motion.div 
+            className="mt-12"
+            key={activeIndex}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-2xl font-semibold text-black mb-4">
+                    {timelineData[activeIndex].title}
+                  </h3>
+                  <p className="text-black leading-relaxed font-medium text-lg">
+                    {timelineData[activeIndex].description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Image */}
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                  <Image
+                    src={timelineData[activeIndex].image}
+                    alt={timelineData[activeIndex].title}
+                    width={500}
+                    height={400}
+                    className="w-full h-80 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Mobile/Tablet Timeline */}
-        <div className="lg:hidden">
-          <div className="space-y-12">
+        {/* Tablet Timeline - Medium screens */}
+        <div className="hidden md:block lg:hidden">
+          <div className="space-y-8">
             {timelineData.map((item, index) => (
               <motion.div
                 key={item.year}
                 className="relative"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
               >
                 {/* Timeline Line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gold/30"></div>
-                
-                {/* Timeline Dot */}
-                <div className="absolute left-6 top-6 w-4 h-4 bg-gold rounded-full transform -translate-x-1/2"></div>
-                
-                {/* Content */}
-                <div className="ml-16">
-                  <div className="mb-4">
-                    <div className="text-gold font-semibold text-sm mb-1">{item.year}</div>
-                    <h3 className="text-xl font-bold text-black mb-3">{item.title}</h3>
-                    <p className="text-base text-black leading-relaxed mb-6 font-medium">
-                      {item.description}
-                    </p>
+                {index < timelineData.length - 1 && (
+                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gold/30" />
+                )}
+
+                <div className="flex items-start space-x-8">
+                  {/* Timeline Dot */}
+                  <motion.div 
+                    className="w-16 h-16 rounded-full bg-gold flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {item.year}
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="flex-1 space-y-4">
+                    <div>
+                      <span className="text-sm font-medium text-gold mb-2 block">
+                        {item.year}
+                      </span>
+                      <h3 className="text-xl font-semibold text-black mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-black leading-relaxed font-medium text-base">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* Tablet Image */}
+                    <motion.div 
+                      className="relative overflow-hidden rounded-xl shadow-lg"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={400}
+                        height={300}
+                        className="w-full h-56 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    </motion.div>
                   </div>
-                  
-                  {/* Image - Centered on mobile */}
-                  <div className="flex justify-center">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      width={350}
-                      height={250}
-                      className="rounded-lg shadow-lg object-cover hover:scale-105 transition-transform duration-300"
-                    />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Vertical Timeline */}
+        <div className="md:hidden">
+          <div className="space-y-6">
+            {timelineData.map((item, index) => (
+              <motion.div
+                key={item.year}
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                {/* Timeline Line */}
+                {index < timelineData.length - 1 && (
+                  <div className="absolute left-6 top-16 bottom-0 w-0.5 bg-gold/30" />
+                )}
+
+                <div className="flex items-start space-x-6">
+                  {/* Timeline Dot */}
+                  <motion.div 
+                    className="w-12 h-12 rounded-full bg-gold flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {item.year}
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="flex-1 space-y-4">
+                    <div>
+                      <span className="text-sm font-medium text-gold mb-2 block">
+                        {item.year}
+                      </span>
+                      <h3 className="text-lg font-semibold text-black mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-black leading-relaxed font-medium text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* Mobile Image - Centered */}
+                    <div className="flex justify-center">
+                      <motion.div 
+                        className="relative overflow-hidden rounded-xl shadow-lg"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          width={350}
+                          height={250}
+                          className="w-full h-40 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
               </motion.div>

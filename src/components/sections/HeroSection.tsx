@@ -62,13 +62,13 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2 }}
               >
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 px-4">
+                <div className="text-5xl lg:text-6xl font-light mb-2 whitespace-nowrap md:whitespace-nowrap sm:whitespace-normal px-4">
                   THE GOLD STANDARD
                 </div>
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2">
+                <div className="text-4xl lg:text-5xl font-light mb-2">
                   OF
                 </div>
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light">
+                <div className="text-5xl lg:text-6xl font-light">
                   PROSECCO
                 </div>
               </motion.div>
@@ -93,7 +93,7 @@ const HeroSection = () => {
                   alt="Valdo Marca Oro Prosecco DOC Brut"
                   width={500}
                   height={1200}
-                  className="w-auto h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px] drop-shadow-2xl"
+                  className="w-auto h-[500px] lg:h-[600px] drop-shadow-2xl"
                 />
               </motion.div>
             </motion.div>
