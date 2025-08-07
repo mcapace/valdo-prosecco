@@ -20,7 +20,7 @@
   --color-gray-700: #171717;
   --color-gold: #D4AF37;
   
-  /* 8-Point Grid Spacing System */
+  /* Reduced 8-Point Grid Spacing System for tighter layout */
   --space-1: 8px;
   --space-2: 16px;
   --space-3: 24px;
@@ -32,7 +32,7 @@
   --space-24: 192px;
 }
 
-/* Base Styles */
+/* Base Styles with Subtle Texture */
 * {
   box-sizing: border-box;
 }
@@ -43,6 +43,11 @@ body {
   line-height: 1.6;
   color: var(--color-black);
   background: var(--color-beige-light);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 49%, rgba(212, 175, 55, 0.01) 50%, transparent 51%);
+  background-size: 200px 200px, 300px 300px, 20px 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -103,7 +108,7 @@ body {
   font-family: var(--font-primary);
 }
 
-/* Layout Components */
+/* Layout Components with Reduced Spacing */
 .container-minimal {
   max-width: 1200px;
   margin: 0 auto;
@@ -111,7 +116,21 @@ body {
 }
 
 .section-minimal {
-  padding: var(--space-16) 0;
+  padding: var(--space-8) 0; /* Reduced from var(--space-16) */
+  position: relative;
+}
+
+/* Subtle section dividers with technology feel */
+.section-minimal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0.3;
 }
 
 /* Image hover effects */
@@ -133,7 +152,7 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Navigation */
+/* Navigation with Enhanced Glass Effect */
 .nav-minimal {
   position: fixed;
   top: 0;
@@ -141,8 +160,9 @@ body {
   right: 0;
   z-index: 50;
   background: rgba(245, 245, 220, 0.95);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-beige-dark);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
 }
 
 .nav-content {
@@ -166,6 +186,22 @@ body {
   text-decoration: none;
   transition: color 0.3s ease;
   letter-spacing: 0.05em;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-link:hover {
@@ -417,10 +453,10 @@ body {
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
-/* Section Headers */
+/* Section Headers with Reduced Spacing */
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-8); /* Reduced from var(--space-16) */
 }
 
 .section-title {
@@ -450,21 +486,37 @@ body {
   color: white !important;
 }
 
-/* Backgrounds */
+/* Backgrounds with Enhanced Texture */
 .bg-gray-50 {
   background: var(--color-beige-light);
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+  background-size: 150px 150px;
 }
 
 .bg-beige {
   background: var(--color-beige);
+  background-image: 
+    radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+  background-size: 200px 200px;
 }
 
 .bg-beige-light {
   background: var(--color-beige-light);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+  background-size: 180px 180px;
 }
 
 .bg-beige-dark {
   background: var(--color-beige-dark);
+  background-image: 
+    radial-gradient(circle at 40% 40%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(212, 175, 55, 0.04) 0%, transparent 50%);
+  background-size: 250px 250px;
 }
 
 /* Animations */
@@ -479,7 +531,29 @@ body {
   transform: translateY(0);
 }
 
-/* Responsive */
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .section-minimal {
+    padding: var(--space-6) 0;
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-6);
+  }
+  
+  .text-display {
+    font-size: 56px;
+  }
+  
+  .text-headline {
+    font-size: 36px;
+  }
+  
+  .text-title {
+    font-size: 28px;
+  }
+}
+
 @media (max-width: 768px) {
   .text-display {
     font-size: 48px;
@@ -497,7 +571,11 @@ body {
   }
   
   .section-minimal {
-    padding: var(--space-16) 0;
+    padding: var(--space-4) 0; /* Further reduced for mobile */
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-4);
   }
   
   .timeline-content {
@@ -527,6 +605,36 @@ body {
   .nav-link {
     font-size: 12px;
     font-weight: 600;
+  }
+  
+  .container-minimal {
+    padding: 0 var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .text-display {
+    font-size: 36px;
+  }
+  
+  .text-headline {
+    font-size: 28px;
+  }
+  
+  .text-title {
+    font-size: 20px;
+  }
+  
+  .section-minimal {
+    padding: var(--space-3) 0;
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-3);
+  }
+  
+  .wine-image {
+    height: 150px;
   }
 }
 
@@ -562,7 +670,7 @@ body {
 .p-12 { padding: var(--space-12); }
 .p-16 { padding: var(--space-16); }
 
-/* Glassmorphism Utilities */
+/* Enhanced Glassmorphism Utilities */
 .glass-light {
   background: rgba(245, 245, 220, 0.7);
   backdrop-filter: blur(10px);
@@ -639,5 +747,30 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Technology-inspired decorative elements */
+.tech-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0.3;
+  margin: var(--space-4) 0;
+}
+
+.tech-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* Subtle grid pattern overlay */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
 }
 
