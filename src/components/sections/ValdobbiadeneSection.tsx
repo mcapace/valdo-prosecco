@@ -131,6 +131,17 @@ const ValdobbiadeneSection: React.FC = () => {
             </motion.div>
           </div>
           
+          {/* DOCG Logos */}
+          <div className="flex justify-center items-center mb-12">
+            <Image
+              src="/images/Logos/Screenshot_2025-08-07_at_10.37.40_AM-removebg-preview.png"
+              alt="DOCG Logos"
+              width={600}
+              height={300}
+              className="w-auto h-32 lg:h-40"
+            />
+          </div>
+          
           {/* DOCG Text */}
           <p className="text-lg lg:text-xl text-black leading-relaxed max-w-4xl mx-auto mb-16 font-medium">
             The prestigious DOCG (Denominazione di Origine Controllata e Garantita) represents Italy's highest quality classification for wines. Only wines produced in the most prestigious vineyards of Valdobbiadene can bear this designation. Valdo wines proudly bear the quality seals of Prosecco Superiore DOCG and Prosecco DOC— delivering a wine that is guaranteed to be more refined, more complex.
