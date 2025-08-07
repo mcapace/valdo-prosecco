@@ -22,6 +22,9 @@ export default function InstagramFeed() {
             if (widget && widget.children.length > 0) {
               console.log('Widget loaded successfully');
               setIsLoading(false);
+              
+              // Add custom styling to hide banners and improve appearance
+              addCustomStyling();
             } else {
               console.log('Widget failed to load content, showing fallback');
               setHasError(true);
@@ -45,6 +48,56 @@ export default function InstagramFeed() {
           }
         }, 3000);
       }
+    };
+
+    const addCustomStyling = () => {
+      // Add custom CSS to hide banners and improve widget appearance
+      const style = document.createElement('style');
+      style.textContent = `
+        /* Hide Elfsight banners and promotional text */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="banner"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="promo"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="advertisement"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="free"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="widget"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="notification"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="close"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="dismiss"] {
+          display: none !important;
+        }
+        
+        /* Hide any elements containing "Free Instagram Feed widget" text */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 *:contains("Free Instagram Feed widget"),
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 *:contains("Free Instagram"),
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 *:contains("widget") {
+          display: none !important;
+        }
+        
+        /* Improve widget appearance */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 {
+          border-radius: 12px !important;
+          overflow: hidden !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        /* Style Instagram posts */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 img {
+          border-radius: 8px !important;
+          transition: transform 0.3s ease !important;
+        }
+        
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 img:hover {
+          transform: scale(1.02) !important;
+        }
+        
+        /* Hide any red close buttons */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 button[style*="red"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [style*="background-color: red"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [style*="background: red"] {
+          display: none !important;
+        }
+      `;
+      document.head.appendChild(style);
     };
 
     // Start initialization
