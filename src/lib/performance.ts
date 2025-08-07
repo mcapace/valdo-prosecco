@@ -244,3 +244,278 @@ export {
   onFCP,
   onTTFB
 }; 
+
+// Performance optimization utilities
+export class PerformanceOptimizer {
+  private static instance: PerformanceOptimizer;
+  private preloadedImages: Set<string> = new Set();
+  private intersectionObserver: IntersectionObserver | null = null;
+
+  static getInstance(): PerformanceOptimizer {
+    if (!PerformanceOptimizer.instance) {
+      PerformanceOptimizer.instance = new PerformanceOptimizer();
+    }
+    return PerformanceOptimizer.instance;
+  }
+
+  // Preload critical images
+  preloadCriticalImages(imageUrls: string[]): void {
+    if (typeof window === 'undefined') return;
+
+    imageUrls.forEach(url => {
+      if (!this.preloadedImages.has(url)) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = url;
+        document.head.appendChild(link);
+        this.preloadedImages.add(url);
+      }
+    });
+  }
+
+  // Lazy load images with intersection observer
+  setupLazyLoading(): void {
+    if (typeof window === 'undefined') return;
+
+    this.intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+              img.removeAttribute('data-src');
+              img.classList.remove('lazy');
+              this.intersectionObserver?.unobserve(img);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '50px 0px',
+        threshold: 0.01
+      }
+    );
+
+    // Observe all lazy images
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      this.intersectionObserver?.observe(img);
+    });
+  }
+
+  // Optimize image loading with priority
+  optimizeImageLoading(images: Array<{ src: string; priority?: boolean }>): void {
+    if (typeof window === 'undefined') return;
+
+    images.forEach(({ src, priority }) => {
+      if (priority) {
+        this.preloadCriticalImages([src]);
+      }
+    });
+  }
+
+  // Monitor Core Web Vitals
+  monitorCoreWebVitals(): void {
+    if (typeof window === 'undefined') return;
+
+    // LCP (Largest Contentful Paint)
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      const lastEntry = entries[entries.length - 1];
+      console.log('LCP:', lastEntry.startTime);
+      
+      // Send to analytics if needed
+      if (window.gtag) {
+        window.gtag('event', 'LCP', {
+          value: Math.round(lastEntry.startTime),
+          event_category: 'Web Vitals'
+        });
+      }
+    }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+    // FID (First Input Delay)
+    new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      entries.forEach(entry => {
+        console.log('FID:', entry.processingStart - entry.startTime);
+        
+        if (window.gtag) {
+          window.gtag('event', 'FID', {
+            value: Math.round(entry.processingStart - entry.startTime),
+            event_category: 'Web Vitals'
+          });
+        }
+      });
+    }).observe({ entryTypes: ['first-input'] });
+
+    // CLS (Cumulative Layout Shift)
+    new PerformanceObserver((entryList) => {
+      let clsValue = 0;
+      const entries = entryList.getEntries();
+      entries.forEach(entry => {
+        if (!entry.hadRecentInput) {
+          clsValue += (entry as any).value;
+        }
+      });
+      console.log('CLS:', clsValue);
+      
+      if (window.gtag) {
+        window.gtag('event', 'CLS', {
+          value: Math.round(clsValue * 1000) / 1000,
+          event_category: 'Web Vitals'
+        });
+      }
+    }).observe({ entryTypes: ['layout-shift'] });
+  }
+
+  // Optimize font loading
+  optimizeFontLoading(): void {
+    if (typeof window === 'undefined') return;
+
+    // Preload critical fonts
+    const criticalFonts = [
+      '/fonts/inter-var.woff2',
+      '/fonts/inter-var.woff'
+    ];
+
+    criticalFonts.forEach(font => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'font';
+      link.type = 'font/woff2';
+      link.href = font;
+      link.crossOrigin = 'anonymous';
+      document.head.appendChild(link);
+    });
+  }
+
+  // Cleanup
+  cleanup(): void {
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+      this.intersectionObserver = null;
+    }
+  }
+}
+
+// Image optimization utilities
+export const imageOptimizer = {
+  // Generate responsive image sizes
+  getResponsiveSizes(containerWidth: number): string {
+    return `(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, ${Math.min(containerWidth, 1200)}px`;
+  },
+
+  // Get optimal image format
+  getOptimalFormat(): string {
+    if (typeof window === 'undefined') return 'webp';
+    
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    
+    if (canvas.toDataURL('image/avif').length > 0) return 'avif';
+    if (canvas.toDataURL('image/webp').length > 0) return 'webp';
+    return 'jpeg';
+  },
+
+  // Calculate optimal image quality
+  getOptimalQuality(width: number, height: number): number {
+    const totalPixels = width * height;
+    if (totalPixels > 2000000) return 75; // Large images
+    if (totalPixels > 500000) return 80;  // Medium images
+    return 85; // Small images
+  }
+};
+
+// Performance monitoring
+export const performanceMonitor = {
+  // Track page load time
+  trackPageLoad(): void {
+    if (typeof window === 'undefined') return;
+
+    window.addEventListener('load', () => {
+      const loadTime = performance.now();
+      console.log('Page load time:', loadTime);
+      
+      if (window.gtag) {
+        window.gtag('event', 'page_load_time', {
+          value: Math.round(loadTime),
+          event_category: 'Performance'
+        });
+      }
+    });
+  },
+
+  // Track image load performance
+  trackImageLoad(img: HTMLImageElement): void {
+    const startTime = performance.now();
+    
+    img.addEventListener('load', () => {
+      const loadTime = performance.now() - startTime;
+      console.log('Image load time:', loadTime, img.src);
+      
+      if (window.gtag) {
+        window.gtag('event', 'image_load_time', {
+          value: Math.round(loadTime),
+          event_category: 'Performance',
+          event_label: img.src
+        });
+      }
+    });
+  },
+
+  // Track user interactions
+  trackUserInteractions(): void {
+    if (typeof window === 'undefined') return;
+
+    let firstInteraction = true;
+    
+    const trackInteraction = () => {
+      if (firstInteraction) {
+        const timeToFirstInteraction = performance.now();
+        console.log('Time to first interaction:', timeToFirstInteraction);
+        
+        if (window.gtag) {
+          window.gtag('event', 'first_interaction', {
+            value: Math.round(timeToFirstInteraction),
+            event_category: 'User Experience'
+          });
+        }
+        
+        firstInteraction = false;
+        document.removeEventListener('click', trackInteraction);
+        document.removeEventListener('scroll', trackInteraction);
+      }
+    };
+
+    document.addEventListener('click', trackInteraction);
+    document.addEventListener('scroll', trackInteraction);
+  }
+};
+
+// Initialize performance optimizations
+export const initializePerformanceOptimizations = (): void => {
+  const optimizer = PerformanceOptimizer.getInstance();
+  
+  // Preload critical images
+  const criticalImages = [
+    '/images/Vineyards/Copia di colline.jpg',
+    '/images/Logos/Valdo Logo New.png',
+    '/images/Bottle Shots/Marca Oro Prosecco DOC Brut USA.png'
+  ];
+  
+  optimizer.preloadCriticalImages(criticalImages);
+  optimizer.setupLazyLoading();
+  optimizer.optimizeFontLoading();
+  optimizer.monitorCoreWebVitals();
+  
+  performanceMonitor.trackPageLoad();
+  performanceMonitor.trackUserInteractions();
+};
+
+// Cleanup on unmount
+export const cleanupPerformanceOptimizations = (): void => {
+  const optimizer = PerformanceOptimizer.getInstance();
+  optimizer.cleanup();
+}; 
