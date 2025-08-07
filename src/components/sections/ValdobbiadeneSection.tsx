@@ -98,30 +98,8 @@ const ValdobbiadeneSection: React.FC = () => {
         <div className="text-center">
           <h3 className="text-3xl lg:text-4xl font-bold text-black mb-8">VALDOBBIADENE PROSECCO SUPERIORE DOCG</h3>
           
-          {/* DOCG Logos - Integrated under the title */}
-          <div className="flex justify-center items-center gap-12 mb-12">
-            <Image
-              src="/images/Bottle Shots/numero-10-docg.svg"
-              alt="Numero 10 DOCG"
-              width={150}
-              height={75}
-              className="w-auto h-16"
-            />
-            <Image
-              src="/images/Bottle Shots/superiore-docg.svg"
-              alt="Superiore DOCG"
-              width={150}
-              height={75}
-              className="w-auto h-16"
-            />
-          </div>
-          
-          <p className="text-lg lg:text-xl text-black leading-relaxed max-w-4xl mx-auto mb-16 font-medium">
-            The prestigious DOCG (Denominazione di Origine Controllata e Garantita) represents Italy's highest quality classification for wines. Only wines produced in the most prestigious vineyards of Valdobbiadene can bear this designation. Valdo wines proudly bear the quality seals of Prosecco Superiore DOCG and Prosecco DOC— delivering a wine that is guaranteed to be more refined, more complex.
-          </p>
-          
-          {/* Enhanced Bottle Images - Numero 10 and Superiore DOCG */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
+          {/* Wine Bottle Images - Moved up below title */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-12">
             <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
@@ -132,10 +110,9 @@ const ValdobbiadeneSection: React.FC = () => {
                 alt="Valdo Numero 10 DOCG"
                 width={350}
                 height={900}
-                className="w-auto h-96 mx-auto mb-6"
+                className="w-auto h-96 mx-auto mb-4"
               />
-              <h4 className="text-2xl font-bold text-black mb-3">Numero 10 DOCG</h4>
-              <p className="text-lg text-gray-700">The pinnacle of Prosecco excellence</p>
+              <h4 className="text-xl font-bold text-black">Numero 10 DOCG</h4>
             </motion.div>
             
             <motion.div 
@@ -148,12 +125,34 @@ const ValdobbiadeneSection: React.FC = () => {
                 alt="Valdobbiadene Superiore DOCG"
                 width={350}
                 height={900}
-                className="w-auto h-96 mx-auto mb-6"
+                className="w-auto h-96 mx-auto mb-4"
               />
-              <h4 className="text-2xl font-bold text-black mb-3">Superiore DOCG</h4>
-              <p className="text-lg text-gray-700">Exceptional quality from the heart of Valdobbiadene</p>
+              <h4 className="text-xl font-bold text-black">Superiore DOCG</h4>
             </motion.div>
           </div>
+          
+          {/* DOCG Logos - Enlarged and positioned below bottles */}
+          <div className="flex justify-center items-center gap-16 mb-12">
+            <Image
+              src="/images/Bottle Shots/numero-10-docg.svg"
+              alt="Numero 10 DOCG"
+              width={200}
+              height={100}
+              className="w-auto h-20"
+            />
+            <Image
+              src="/images/Bottle Shots/superiore-docg.svg"
+              alt="Superiore DOCG"
+              width={200}
+              height={100}
+              className="w-auto h-20"
+            />
+          </div>
+          
+          {/* New DOCG Text */}
+          <p className="text-lg lg:text-xl text-black leading-relaxed max-w-4xl mx-auto mb-16 font-medium">
+            The prestigious DOCG (Denominazione di Origine Controllata e Garantita) represents Italy's highest quality classification for wines. Only wines produced in the most prestigious vineyards of Valdobbiadene can bear this designation. Valdo wines proudly bear the quality seals of Prosecco Superiore DOCG and Prosecco DOC— delivering a wine that is guaranteed to be more refined, more complex.
+          </p>
 
           {/* Additional Logos */}
           <div className="flex justify-center">
