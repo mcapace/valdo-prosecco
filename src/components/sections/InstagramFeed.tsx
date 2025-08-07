@@ -16,26 +16,34 @@ export default function InstagramFeed() {
           window.elfsight.init();
           console.log('Elfsight initialized successfully');
           
-          // Check if widget loads within 10 seconds
+          // Check if widget loads within 5 seconds (shorter timeout)
           timeoutId = setTimeout(() => {
             const widget = document.querySelector('.elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160');
             if (widget && widget.children.length > 0) {
               console.log('Widget loaded successfully');
               setIsLoading(false);
             } else {
-              console.log('Widget failed to load content');
+              console.log('Widget failed to load content, showing fallback');
               setHasError(true);
               setIsLoading(false);
             }
-          }, 10000);
+          }, 5000); // Reduced to 5 seconds
         } catch (error) {
           console.error('Error initializing Elfsight:', error);
           setHasError(true);
           setIsLoading(false);
         }
       } else {
-        // If Elfsight is not available, wait a bit and try again
-        setTimeout(initializeWidget, 1000);
+        // If Elfsight is not available after 3 seconds, show fallback
+        setTimeout(() => {
+          if (typeof window !== 'undefined' && !window.elfsight) {
+            console.log('Elfsight not available after timeout, showing fallback');
+            setHasError(true);
+            setIsLoading(false);
+          } else {
+            initializeWidget();
+          }
+        }, 3000);
       }
     };
 
