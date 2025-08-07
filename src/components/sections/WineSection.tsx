@@ -83,12 +83,25 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
           onClick={onClose}
         >
           <motion.div
-            className="bg-white rounded-lg shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden"
+            className="bg-white rounded-lg shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden relative"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close X Button - Top Right */}
+            <motion.button
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-gold rounded-full flex items-center justify-center text-white font-bold text-lg hover:bg-gold/90 transition-colors shadow-lg"
+              onClick={onClose}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              ×
+            </motion.button>
+            
             <div className="flex flex-col lg:flex-row h-full">
               {/* Left side - Bottle image */}
               <div className="lg:w-1/2 p-8 flex items-center justify-center bg-gradient-to-br from-beige-light to-beige">
@@ -135,15 +148,6 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
                     </ul>
                   </div>
                 </div>
-                
-                <motion.button
-                  className="mt-6 px-6 py-3 bg-gold text-white rounded-lg font-semibold hover:bg-gold/90 transition-colors text-sm"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={onClose}
-                >
-                  Close
-                </motion.button>
               </div>
             </div>
           </motion.div>

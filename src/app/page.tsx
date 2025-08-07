@@ -8,6 +8,7 @@ import WineSection from '@/components/sections/WineSection';
 import CasaValdoSection from '@/components/sections/CasaValdoSection';
 import LifestyleSection from '@/components/sections/LifestyleSection';
 import InstagramFeed from '@/components/sections/InstagramFeed';
+import OCMLogoSection from '@/components/sections/OCMLogoSection';
 import Footer from '@/components/sections/Footer';
 
 export default function ValdoLandingPage() {
@@ -35,6 +36,7 @@ export default function ValdoLandingPage() {
         <LifestyleSection />
       </div>
       <InstagramFeed />
+      <OCMLogoSection />
       <Footer />
     </>
   );

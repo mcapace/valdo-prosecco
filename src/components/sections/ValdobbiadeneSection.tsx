@@ -132,20 +132,20 @@ const ValdobbiadeneSection: React.FC = () => {
           </div>
           
           {/* DOCG Logos - Much Larger */}
-          <div className="flex justify-center items-center gap-20 mb-12">
+          <div className="flex justify-center items-center gap-24 mb-12">
             <Image
               src="/images/Bottle Shots/numero-10-docg.svg"
               alt="Numero 10 DOCG"
-              width={300}
-              height={150}
-              className="w-auto h-32"
+              width={400}
+              height={200}
+              className="w-auto h-40"
             />
             <Image
               src="/images/Bottle Shots/superiore-docg.svg"
               alt="Superiore DOCG"
-              width={300}
-              height={150}
-              className="w-auto h-32"
+              width={400}
+              height={200}
+              className="w-auto h-40"
             />
           </div>
           
