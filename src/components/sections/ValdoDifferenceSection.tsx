@@ -23,7 +23,7 @@ const valdoDifferenceData = [
   {
     title: "VALUES",
     description: "Tradition Meets Innovation",
-    image: "/images/lifestyle/Copia di BICCHIERE.jpg",
+    image: "/images/lifestyle/_R5A4520.jpg",
     caption: "Hand harvesting each and every grape coupled with integrating innovative techniques in the winery",
     alt: "Glass of Prosecco overlooking the vineyards of Valdobbiadene",
     link: "https://us.valdo.com/collections/all"
@@ -31,7 +31,7 @@ const valdoDifferenceData = [
   {
     title: "PIONEER IN CUVÉE",
     description: "First to introduce the concept of Cuvee with the gentle pressing of the grapes for Valdo's prestige wine- Numero 10",
-    image: "/images/Bottle Shots/numero-10-docg.svg",
+    image: "/images/lifestyle/Copia di linea(1).jpg",
     caption: "Creating the highest quality for the Valdo family of wines",
     alt: "Valdo Numero 10 DOCG corks and quality seals",
     link: "https://us.valdo.com/pages/awards"

@@ -9,29 +9,56 @@ const wines = [
     name: 'MARCA ORO',
     subtitle: 'DOC',
     image: '/images/Bottle Shots/Marca Oro Prosecco DOC Brut USA.png',
-    description: 'THE MARCA ORO YELLOW LABEL WAS FIRST INTRODUCED IN ITALY IN THE 1950\'S BY SERGIO BOLLA, FOUNDER OF VALDO AND FATHER OF CURRENT CHAIRMAN & CEO PIERLUIGI BOLLA.',
-    details: 'SINCE THEN THIS LABEL BECAME AN AMBASSADOR OF HIGH QUALITY PROSECCO AROUND THE WORLD AND TODAY MARCA ORO IS THE LEADER OF THE PROSECCO SPUMANTE MARKET IN ITALY AND GERMANY. THIS BRUT PROSECCO DOC IS CRAFTED WITH THE BEST SELECTION OF GLERA GRAPES HARVESTED IN THE VENETO AND FRIULI REGIONS FROM ALLUVIAL AND CLAY SOILS. THE LABEL IS INSPIRED BY VENETIAN LACE, A TRADITION IN THE VENETIAN LAGOON FOR SEVERAL CENTURIES (LATE 15TH CENTURY). A SYMBOL OF PATIENCE, DEDICATION AND SKILL, IT REPRESENTS A LOCAL CRAFT TRADITION, A SYNONYM OF EXCELLENCE THROUGHOUT THE WORLD.'
+    description: 'The Marca Oro yellow label was first introduced in Italy in the 1950s by Sergio Bolla, founder of Valdo and father of current Chairman & CEO Pierluigi Bolla.',
+    details: [
+      'Leader of the Prosecco Spumante market in Italy and Germany',
+      'Crafted with the best selection of Glera grapes from Veneto and Friuli regions',
+      'Harvested from alluvial and clay soils for optimal quality',
+      'Label inspired by Venetian lace tradition (late 15th century)',
+      'Symbol of patience, dedication, and skill representing local craft excellence'
+    ]
   },
   {
     name: 'NUMERO 10',
     subtitle: 'DOCG',
     image: '/images/Bottle Shots/Copia_di_Valdo_Numero_10_DOCG_75cl__2_-removebg-preview.png',
-    description: 'UNIQUE IN ITS KIND, STEMS FROM THE INTUITION OF THE BOLLA FAMILY.',
-    details: '100% GLERA CRAFTED USING THE CLASSIC METHOD, INVOLVING AT LEAST 10 MONTHS OF REFERMENTATION AND AGEING IN THE BOTTLE (CLASSIC METHOD). A SPARKLING WINE THAT ABLY COMBINES THE TYPICAL FRUITY AND DELICATE CHARACTERISTICS OF THE GLERA GRAPE WITH THE BODY AND PERSONALITY OBTAINED VIA REFERMENTATION IN THE BOTTLE. RIPE FRUITY SCENTS BLEND WITH HONEYED AND COMPLEX NUANCES, YIELDING A UNIQUE AND SURPRISING EXPERIENCE IN THE GLASS.'
+    description: 'Unique in its kind, stems from the intuition of the Bolla family.',
+    details: [
+      '100% Glera crafted using the Classic Method',
+      'At least 10 months of refermentation and ageing in the bottle',
+      'Combines fruity and delicate characteristics of Glera grape',
+      'Body and personality obtained via refermentation in the bottle',
+      'Ripe fruity scents blend with honeyed and complex nuances',
+      'Yields a unique and surprising experience in the glass'
+    ]
   },
   {
     name: 'SUPERIORE',
     subtitle: 'DOCG',
     image: '/images/Bottle Shots/Valdobbiadene DOCG USA.png',
-    description: 'A TRIBUTE TO THE TRADITION OF VALDOBBIADENE, A PROUD TRIBUTE TO THE HISTORY OF VALDO, WHICH BEGAN IN 1926 AND HAS ALWAYS LOOKED TOWARDS THE FUTURE.',
-    details: 'CAREFULLY PRODUCED WITH RESEARCH IN THE WINERY, ITS TRIUMPHANT BRUT DOSAGE EXPRESSES THE PASSION OF THE BOLLA FAMILY AND THE VOCATION AND TYPICALITY OF THE TERROIR. FUTURIST INSPIRATION: IN 1926, THE YEAR THE WINERY WAS FOUNDED, THE FUTURIST ART MOVEMENT GAINED APPROVAL AT THE VENICE BIENNALE. THE LABEL OF THIS "SUPERIORE BRUT" DRAWS INSPIRATION FROM THE WORKS OF GIACOMO BALLA, A LEADING EXPONENT OF THE FUTURIST MOVEMENT.'
+    description: 'A tribute to the tradition of Valdobbiadene, a proud tribute to the history of Valdo, which began in 1926 and has always looked towards the future.',
+    details: [
+      'Carefully produced with research in the winery',
+      'Triumphant Brut dosage expresses the passion of the Bolla family',
+      'Vocation and typicality of the terroir',
+      'Futurist inspiration from 1926 Venice Biennale',
+      'Label draws inspiration from the works of Giacomo Balla',
+      'Leading exponent of the Futurist movement'
+    ]
   },
   {
     name: 'MARCA ORO ROSÉ',
     subtitle: 'DOC',
     image: '/images/Bottle Shots/Rose.png',
-    description: 'MARCA ORO PROSECCO DOC ROSÉ REPRESENTS AN EXTENSION OF THE VALUES AND THE RANGE OF MARCA ORO.',
-    details: 'IT IS AN INTRIGUING PRODUCT WITH AN EYE-CATCHING COLOUR AND A STRONG PERSONALITY. IT IS A SPLENDID ROSÉ VERSION OF THE WORLD\'S MOST POPULAR SPARKLING WINE. HERE, THE GLERA GRAPE MEETS PINOT NOIR TO CREATE A SPARKLING ROSÉ BRUT. THE LABEL IS INSPIRED BY VENETIAN LACE, A TRADITION IN THE VENETIAN LAGOON FOR SEVERAL CENTURIES (LATE 15TH CENTURY). A SYMBOL OF PATIENCE, DEDICATION AND SKILL, IT REPRESENTS A LOCAL CRAFT TRADITION, A SYNONYM OF EXCELLENCE THROUGHOUT THE WORLD.'
+    description: 'Marca Oro Prosecco DOC Rosé represents an extension of the values and the range of Marca Oro.',
+    details: [
+      'Intriguing product with an eye-catching colour and strong personality',
+      'Splendid rosé version of the world\'s most popular sparkling wine',
+      'Glera grape meets Pinot Noir to create a sparkling rosé Brut',
+      'Label inspired by Venetian lace tradition (late 15th century)',
+      'Symbol of patience, dedication, and skill',
+      'Represents local craft tradition, a synonym of excellence worldwide'
+    ]
   }
 ];
 
@@ -87,17 +114,25 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
                   <p className="text-lg text-red-600 font-semibold mb-4">{wine.subtitle}</p>
                 </div>
                 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div>
-                    <p className="text-sm lg:text-base text-black font-medium leading-relaxed">
+                    <p className="text-base lg:text-lg text-black font-normal leading-relaxed">
                       {wine.description}
                     </p>
                   </div>
                   
                   <div>
-                    <p className="text-xs lg:text-sm text-gray-700 font-medium leading-relaxed">
-                      {wine.details}
-                    </p>
+                    <h3 className="text-lg font-semibold text-black mb-3">Key Features:</h3>
+                    <ul className="space-y-2">
+                      {wine.details.map((detail: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-red-600 font-bold mr-2 mt-1">•</span>
+                          <span className="text-sm lg:text-base text-gray-700 font-normal leading-relaxed">
+                            {detail}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
                 
