@@ -1,6 +1,6 @@
 {
   "/_not-found/page": "/_not-found",
-  "/test/page": "/test",
   "/page": "/",
+  "/test/page": "/test",
   "/[locale]/page": "/[locale]"
 }
