@@ -6,10 +6,10 @@ import Image from 'next/image';
 const valdoDifferenceData = [
   {
     title: "DECADES OF FAMILY PARTNERSHIP",
-    description: "70 family growers spanning generations",
+    description: "Chief Winemaker Gianfranco Zanon oversees the winemaking for Valdo working closely with the grower families of the region",
     image: "/images/Winemaker/Copia di Gianfranco Zanon(1).jpg",
-    caption: "Gianfranco Zanon, representing four generations of the Bolla family's winemaking tradition",
-    alt: "Valdo winemaker in the vineyards of Valdobbiadene",
+    caption: "Gianfranco Zanon, Chief Winemaker, representing four generations of the Bolla family's winemaking tradition",
+    alt: "Valdo Chief Winemaker Gianfranco Zanon in the vineyards of Valdobbiadene",
     link: "https://us.valdo.com/pages/prosecco-history-and-facts"
   },
   {
@@ -22,18 +22,18 @@ const valdoDifferenceData = [
   },
   {
     title: "VALUES",
-    description: "Tradition meets innovation",
-    image: "/images/Grapes/Copia di GLERA 2.jpg",
-    caption: "Premium Glera grapes, where centuries of tradition meet modern innovation",
-    alt: "Close-up of Glera grapes in Valdobbiadene vineyards",
+    description: "Tradition Meets Innovation",
+    image: "/images/lifestyle/Copia di BICCHIERE.jpg",
+    caption: "Hand harvesting each and every grape coupled with integrating innovative techniques in the winery",
+    alt: "Glass of Prosecco overlooking the vineyards of Valdobbiadene",
     link: "https://us.valdo.com/collections/all"
   },
   {
     title: "PIONEER IN CUVÉE",
-    description: "First to introduce Traditional Method with Glera",
-    image: "/images/Grapes/Copia di vendemmia(1).jpg",
-    caption: "Hand-harvesting preserves quality for Traditional Method Prosecco production",
-    alt: "Traditional hand-picking of grapes for Valdo Cuvée",
+    description: "First to introduce the concept of Cuvee with the gentle pressing of the grapes for Valdo's prestige wine- Numero 10",
+    image: "/images/Bottle Shots/numero-10-docg.svg",
+    caption: "Creating the highest quality for the Valdo family of wines",
+    alt: "Valdo Numero 10 DOCG corks and quality seals",
     link: "https://us.valdo.com/pages/awards"
   },
   {
@@ -62,7 +62,7 @@ const ValdoDifferenceSection: React.FC = () => {
         <div className="section-header">
           <h2 className="section-title">THE VALDO DIFFERENCE</h2>
           <p className="section-subtitle">
-            Valdo is a true Italian original, whose wines express their heritage in vibrant, graceful sparkling wines. Over the years, the Bolla Family has developed a loyal and dedicated relationship with the family-owned vineyards of Valdobbiadene that has spanned generations.
+            Valdo is a true Italian original, whose wines express their heritage in vibrant, graceful sparkling wines. The Bolla Family has developed a loyal relationship with the family-owned vineyards of Valdobbiadene that has spanned generations.
           </p>
         </div>
 
