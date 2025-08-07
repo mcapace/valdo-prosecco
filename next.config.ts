@@ -106,24 +106,26 @@ const nextConfig: NextConfig = {
 
   // Headers for performance and security
   async headers() {
+    const ContentSecurityPolicy = `
+      default-src 'self';
+      script-src 'self' https://static.elfsight.com 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.googletagmanager.com *.mixpanel.com *.sentry.io https://vercel.live;
+      connect-src 'self' https://*.elfsight.com https://*.instagram.com https://api.instagram.com https://www.google-analytics.com;
+      frame-src https://*.elfsight.com https://*.instagram.com https://www.instagram.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.elfsight.com https://www.instagram.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https: blob: https://*.elfsight.com https://*.instagram.com https://scontent.cdninstagram.com;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    `;
+
     return [
       {
         source: '/(.*)',
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: [
-              "default-src 'self'",
-              "script-src 'self' https://static.elfsight.com 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.googletagmanager.com *.mixpanel.com *.sentry.io https://vercel.live",
-              "frame-src https://*.elfsight.com https://*.instagram.com https://www.instagram.com",
-              "connect-src 'self' https://*.elfsight.com https://*.instagram.com https://api.instagram.com https://www.google-analytics.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.elfsight.com https://www.instagram.com",
-              "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: https: blob: https://*.elfsight.com https://*.instagram.com https://scontent.cdninstagram.com",
-              "object-src 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-            ].join('; '),
+            value: ContentSecurityPolicy.replace(/\n/g, ''),
           },
           {
             key: 'X-Content-Type-Options',
