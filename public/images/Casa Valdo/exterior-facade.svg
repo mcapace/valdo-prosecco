@@ -1,0 +1,50 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D2B48C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A0522D;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="roofGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="800" height="500" fill="#E6F3FF"/>
+  
+  <!-- Main building structure -->
+  <rect x="200" y="200" width="400" height="250" fill="url(#stoneGradient)" stroke="#8B4513" stroke-width="3"/>
+  
+  <!-- Roof -->
+  <path d="M180,200 L420,120 L620,200 L620,200 Z" fill="url(#roofGradient)"/>
+  
+  <!-- Windows -->
+  <rect x="250" y="250" width="60" height="80" fill="#87CEEB" stroke="#2F4F2F" stroke-width="2"/>
+  <rect x="490" y="250" width="60" height="80" fill="#87CEEB" stroke="#2F4F2F" stroke-width="2"/>
+  
+  <!-- Door -->
+  <rect x="370" y="350" width="60" height="100" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  
+  <!-- Window frames -->
+  <line x1="280" y1="250" x2="280" y2="330" stroke="#2F4F2F" stroke-width="1"/>
+  <line x1="520" y1="250" x2="520" y2="330" stroke="#2F4F2F" stroke-width="1"/>
+  
+  <!-- Door handle -->
+  <circle cx="410" cy="400" r="3" fill="#FFD700"/>
+  
+  <!-- Chimney -->
+  <rect x="500" y="130" width="30" height="80" fill="url(#stoneGradient)" stroke="#8B4513" stroke-width="2"/>
+  
+  <!-- Ground/terrace -->
+  <rect x="150" y="450" width="500" height="50" fill="#8FBC8F" opacity="0.8"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="400" y="180" r="15" fill="#D4AF37" opacity="0.8"/>
+  <circle cx="400" y="180" r="8" fill="#FFD700"/>
+  
+  <!-- Text overlay -->
+  <text x="400" y="480" text-anchor="middle" font-family="Trajan Pro, serif" font-size="18" fill="#2F4F2F" opacity="0.8">
+    Casa Valdo
+  </text>
+</svg>

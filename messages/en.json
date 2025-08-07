@@ -1,0 +1,149 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "vineyard": "Vineyard",
+    "contact": "Contact",
+    "shop": "Shop Now"
+  },
+  "hero": {
+    "title": "Valdo Prosecco",
+    "subtitle": "Premium Italian Sparkling Wine",
+    "description": "Discover the legacy of Valdo Prosecco, crafted in the heart of Valdobbiadene with over 90 years of tradition. Experience the finest Italian sparkling wines.",
+    "cta": "Explore Our Collection",
+    "scroll": "Scroll to discover"
+  },
+  "about": {
+    "title": "Our Heritage",
+    "subtitle": "A Legacy of Excellence",
+    "description": "Since 1926, Valdo has been crafting exceptional Prosecco in the prestigious Valdobbiadene region. Our commitment to tradition and innovation has made us one of Italy's most respected sparkling wine producers.",
+    "stats": {
+      "years": "Years of Tradition",
+      "hectares": "Hectares of Vineyards",
+      "bottles": "Bottles Produced Annually"
+    },
+    "values": {
+      "tradition": "Tradition",
+      "quality": "Quality",
+      "innovation": "Innovation",
+      "sustainability": "Sustainability"
+    }
+  },
+  "products": {
+    "title": "Our Collection",
+    "subtitle": "Premium Prosecco Varieties",
+    "prosecco": {
+      "name": "Valdo Prosecco",
+      "description": "Our signature Prosecco with delicate bubbles and fresh fruit notes",
+      "price": "$24.99",
+      "features": ["DOCG Certified", "Traditional Method", "Fresh & Crisp"]
+    },
+    "rose": {
+      "name": "Valdo Rosé",
+      "description": "Elegant rosé with notes of red berries and floral aromas",
+      "price": "$28.99",
+      "features": ["Limited Edition", "Pinot Noir Blend", "Elegant Finish"]
+    },
+    "brut": {
+      "name": "Valdo Brut",
+      "description": "Dry and crisp with citrus undertones and mineral complexity",
+      "price": "$26.99",
+      "features": ["Extra Dry", "Complex Aromas", "Perfect Balance"]
+    }
+  },
+  "vineyard": {
+    "title": "Our Vineyard",
+    "subtitle": "The Heart of Valdobbiadene",
+    "description": "Located in the prestigious Valdobbiadene region, our vineyards benefit from the perfect combination of climate, soil, and tradition that makes this area the world's premier Prosecco region.",
+    "tour": {
+      "title": "Virtual Vineyard Tour",
+      "description": "Experience the magic of Valdobbiadene from anywhere in the world",
+      "points": {
+        "glera": "Glera Grape Vines",
+        "harvest": "Harvesting Process",
+        "winery": "Historic Winery",
+        "cellars": "Aging Cellars",
+        "tasting": "Tasting Room",
+        "terrace": "Panoramic Terrace"
+      }
+    }
+  },
+  "pairings": {
+    "title": "Perfect Pairings",
+    "subtitle": "Discover Ideal Food Combinations",
+    "description": "Explore the perfect food pairings for each Valdo Prosecco variety. Hover over the radar chart to explore specific categories and their perfect matches.",
+    "categories": {
+      "seafood": "Seafood",
+      "cheese": "Cheese",
+      "pasta": "Pasta",
+      "fruits": "Fruits",
+      "desserts": "Desserts",
+      "appetizers": "Appetizers"
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Capturing the Essence of Valdo",
+    "vineyard": "Vineyard Views",
+    "harvest": "Harvest Season",
+    "winery": "Winery Interior",
+    "bottles": "Premium Collection"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Connect with Valdo Prosecco",
+    "description": "Have questions about our wines or want to learn more about our heritage? We'd love to hear from you.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Business Hours"
+    }
+  },
+  "footer": {
+    "description": "Valdo Prosecco - Premium Italian sparkling wine crafted with tradition and innovation since 1926.",
+    "links": {
+      "about": "About Us",
+      "products": "Our Wines",
+      "vineyard": "Vineyard Tour",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "social": "Follow Us",
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter for the latest news and exclusive offers.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe"
+    },
+    "copyright": "© 2024 Valdo Prosecco. All rights reserved."
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "shopNow": "Shop Now",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "seo": {
+    "title": "Valdo Prosecco - Premium Italian Sparkling Wine",
+    "description": "Discover the legacy of Valdo Prosecco, crafted in the heart of Valdobbiadene with over 90 years of tradition. Experience the finest Italian sparkling wines.",
+    "keywords": "Valdo Prosecco, Italian sparkling wine, Valdobbiadene, premium prosecco, DOCG, wine, champagne alternative"
+  }
+} 

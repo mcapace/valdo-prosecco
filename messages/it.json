@@ -1,0 +1,149 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "Chi Siamo",
+    "products": "Prodotti",
+    "vineyard": "Vigneto",
+    "contact": "Contatti",
+    "shop": "Acquista Ora"
+  },
+  "hero": {
+    "title": "Valdo Prosecco",
+    "subtitle": "Vino Spumante Italiano di Qualità",
+    "description": "Scopri la tradizione del Valdo Prosecco, creato nel cuore di Valdobbiadene con oltre 90 anni di storia. Vivi l'esperienza dei migliori vini spumanti italiani.",
+    "cta": "Esplora la Nostra Collezione",
+    "scroll": "Scorri per scoprire"
+  },
+  "about": {
+    "title": "La Nostra Storia",
+    "subtitle": "Un'Eredità di Eccellenza",
+    "description": "Dal 1926, Valdo produce Prosecco eccezionale nella prestigiosa regione di Valdobbiadene. Il nostro impegno per la tradizione e l'innovazione ci ha reso uno dei produttori di vino spumante più rispettati d'Italia.",
+    "stats": {
+      "years": "Anni di Tradizione",
+      "hectares": "Ettari di Vigneti",
+      "bottles": "Bottiglie Prodotte Annualmente"
+    },
+    "values": {
+      "tradition": "Tradizione",
+      "quality": "Qualità",
+      "innovation": "Innovazione",
+      "sustainability": "Sostenibilità"
+    }
+  },
+  "products": {
+    "title": "La Nostra Collezione",
+    "subtitle": "Varietà di Prosecco di Qualità",
+    "prosecco": {
+      "name": "Valdo Prosecco",
+      "description": "Il nostro Prosecco signature con bollicine delicate e note di frutta fresca",
+      "price": "€22,99",
+      "features": ["Certificato DOCG", "Metodo Tradizionale", "Fresco e Croccante"]
+    },
+    "rose": {
+      "name": "Valdo Rosé",
+      "description": "Rosé elegante con note di frutti di bosco e aromi floreali",
+      "price": "€25,99",
+      "features": ["Edizione Limitata", "Blend Pinot Noir", "Finale Elegante"]
+    },
+    "brut": {
+      "name": "Valdo Brut",
+      "description": "Secco e croccante con sentori di agrumi e complessità minerale",
+      "price": "€24,99",
+      "features": ["Extra Dry", "Aromi Complessi", "Perfetto Equilibrio"]
+    }
+  },
+  "vineyard": {
+    "title": "Il Nostro Vigneto",
+    "subtitle": "Il Cuore di Valdobbiadene",
+    "description": "Situato nella prestigiosa regione di Valdobbiadene, i nostri vigneti beneficiano della perfetta combinazione di clima, terreno e tradizione che rende questa zona la regione Prosecco di riferimento nel mondo.",
+    "tour": {
+      "title": "Tour Virtuale del Vigneto",
+      "description": "Vivi la magia di Valdobbiadene da qualsiasi parte del mondo",
+      "points": {
+        "glera": "Viti Glera",
+        "harvest": "Processo di Vendemmia",
+        "winery": "Cantina Storica",
+        "cellars": "Cantine di Invecchiamento",
+        "tasting": "Sala Degustazione",
+        "terrace": "Terrazza Panoramica"
+      }
+    }
+  },
+  "pairings": {
+    "title": "Abbinamenti Perfetti",
+    "subtitle": "Scopri Combinazioni Alimentari Ideali",
+    "description": "Esplora gli abbinamenti alimentari perfetti per ogni varietà di Valdo Prosecco. Passa il mouse sul grafico radar per esplorare categorie specifiche e le loro combinazioni perfette.",
+    "categories": {
+      "seafood": "Pesce",
+      "cheese": "Formaggi",
+      "pasta": "Pasta",
+      "fruits": "Frutta",
+      "desserts": "Dolci",
+      "appetizers": "Antipasti"
+    }
+  },
+  "gallery": {
+    "title": "Galleria",
+    "subtitle": "Catturando l'Essenza di Valdo",
+    "vineyard": "Viste del Vigneto",
+    "harvest": "Stagione della Vendemmia",
+    "winery": "Interno della Cantina",
+    "bottles": "Collezione Premium"
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Connettiti con Valdo Prosecco",
+    "description": "Hai domande sui nostri vini o vuoi saperne di più sulla nostra storia? Ci piacerebbe sentire da te.",
+    "form": {
+      "name": "Nome Completo",
+      "email": "Indirizzo Email",
+      "message": "Messaggio",
+      "submit": "Invia Messaggio",
+      "success": "Messaggio inviato con successo!",
+      "error": "Impossibile inviare il messaggio. Riprova."
+    },
+    "info": {
+      "address": "Indirizzo",
+      "phone": "Telefono",
+      "email": "Email",
+      "hours": "Orari di Lavoro"
+    }
+  },
+  "footer": {
+    "description": "Valdo Prosecco - Vino spumante italiano di qualità creato con tradizione e innovazione dal 1926.",
+    "links": {
+      "about": "Chi Siamo",
+      "products": "I Nostri Vini",
+      "vineyard": "Tour del Vigneto",
+      "contact": "Contatti",
+      "privacy": "Privacy Policy",
+      "terms": "Termini di Servizio"
+    },
+    "social": "Seguici",
+    "newsletter": {
+      "title": "Rimani Aggiornato",
+      "description": "Iscriviti alla nostra newsletter per le ultime notizie e offerte esclusive.",
+      "placeholder": "Inserisci la tua email",
+      "subscribe": "Iscriviti"
+    },
+    "copyright": "© 2024 Valdo Prosecco. Tutti i diritti riservati."
+  },
+  "common": {
+    "learnMore": "Scopri di Più",
+    "shopNow": "Acquista Ora",
+    "viewAll": "Vedi Tutto",
+    "readMore": "Leggi di Più",
+    "close": "Chiudi",
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente"
+  },
+  "seo": {
+    "title": "Valdo Prosecco - Vino Spumante Italiano di Qualità",
+    "description": "Scopri la tradizione del Valdo Prosecco, creato nel cuore di Valdobbiadene con oltre 90 anni di storia. Vivi l'esperienza dei migliori vini spumanti italiani.",
+    "keywords": "Valdo Prosecco, vino spumante italiano, Valdobbiadene, prosecco di qualità, DOCG, vino, alternativa champagne"
+  }
+} 
