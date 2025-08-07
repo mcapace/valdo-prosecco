@@ -8,6 +8,7 @@ export default function InstagramFeed() {
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
+    let cleanupInterval: NodeJS.Timeout;
 
     const initializeWidget = () => {
       // Wait for Elfsight to be available
@@ -23,8 +24,8 @@ export default function InstagramFeed() {
               console.log('Widget loaded successfully');
               setIsLoading(false);
               
-              // Add custom styling to hide banners and improve appearance
-              addCustomStyling();
+              // Start cleaning up banners and improving appearance
+              cleanupBanners();
             } else {
               console.log('Widget failed to load content, showing fallback');
               setHasError(true);
@@ -50,54 +51,83 @@ export default function InstagramFeed() {
       }
     };
 
-    const addCustomStyling = () => {
-      // Add custom CSS to hide banners and improve widget appearance
-      const style = document.createElement('style');
-      style.textContent = `
-        /* Hide Elfsight banners and promotional text */
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="banner"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="promo"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="advertisement"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="free"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="widget"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="notification"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="close"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="dismiss"] {
-          display: none !important;
+    const cleanupBanners = () => {
+      // Function to remove banners and promotional elements
+      const removeBanners = () => {
+        // Remove elements containing promotional text
+        const elements = document.querySelectorAll('*');
+        elements.forEach(element => {
+          const text = element.textContent || '';
+          if (text.includes('Free Instagram Feed widget') || 
+              text.includes('Free Instagram') ||
+              text.includes('widget') ||
+              text.includes('banner') ||
+              text.includes('promo')) {
+            (element as HTMLElement).style.display = 'none';
+            element.remove();
+          }
+        });
+
+        // Remove red close buttons
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+          const style = window.getComputedStyle(button);
+          if (style.backgroundColor.includes('red') || 
+              style.background.includes('red') ||
+              button.style.backgroundColor === 'red' ||
+              button.style.background === 'red') {
+            button.style.display = 'none';
+            button.remove();
+          }
+        });
+
+        // Remove elements with specific classes that might be banners
+        const bannerSelectors = [
+          '[class*="banner"]',
+          '[class*="promo"]',
+          '[class*="advertisement"]',
+          '[class*="notification"]',
+          '[class*="close"]',
+          '[class*="dismiss"]',
+          '[class*="free"]'
+        ];
+
+        bannerSelectors.forEach(selector => {
+          const elements = document.querySelectorAll(selector);
+          elements.forEach(element => {
+            (element as HTMLElement).style.display = 'none';
+            element.remove();
+          });
+        });
+
+        // Improve widget appearance
+        const widget = document.querySelector('.elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160');
+        if (widget) {
+          (widget as HTMLElement).style.borderRadius = '12px';
+          (widget as HTMLElement).style.overflow = 'hidden';
+          (widget as HTMLElement).style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
         }
-        
-        /* Hide any elements containing "Free Instagram Feed widget" text */
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 *:contains("Free Instagram Feed widget"),
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 *:contains("Free Instagram"),
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 *:contains("widget") {
-          display: none !important;
+
+        // Style Instagram images
+        const images = document.querySelectorAll('.elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 img');
+        images.forEach(img => {
+          (img as HTMLElement).style.borderRadius = '8px';
+          (img as HTMLElement).style.transition = 'transform 0.3s ease';
+        });
+      };
+
+      // Run cleanup immediately
+      removeBanners();
+
+      // Set up interval to continuously clean up (in case new elements are added)
+      cleanupInterval = setInterval(removeBanners, 1000);
+
+      // Stop cleanup after 30 seconds
+      setTimeout(() => {
+        if (cleanupInterval) {
+          clearInterval(cleanupInterval);
         }
-        
-        /* Improve widget appearance */
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 {
-          border-radius: 12px !important;
-          overflow: hidden !important;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        /* Style Instagram posts */
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 img {
-          border-radius: 8px !important;
-          transition: transform 0.3s ease !important;
-        }
-        
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 img:hover {
-          transform: scale(1.02) !important;
-        }
-        
-        /* Hide any red close buttons */
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 button[style*="red"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [style*="background-color: red"],
-        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [style*="background: red"] {
-          display: none !important;
-        }
-      `;
-      document.head.appendChild(style);
+      }, 30000);
     };
 
     // Start initialization
@@ -105,6 +135,7 @@ export default function InstagramFeed() {
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
+      if (cleanupInterval) clearInterval(cleanupInterval);
     };
   }, []);
 

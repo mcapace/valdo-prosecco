@@ -51,7 +51,6 @@ const timelineData = [
 
 const TimelineSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -60,28 +59,8 @@ const TimelineSection = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-  // Auto-play functionality with longer duration
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % timelineData.length);
-    }, 8000); // Increased from default to 8 seconds for better reading time
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying]);
-
   const handleTimelineClick = (index: number) => {
     setActiveIndex(index);
-    setIsAutoPlaying(false); // Stop auto-play when user interacts
-  };
-
-  const handleMouseEnter = () => {
-    setIsAutoPlaying(false);
-  };
-
-  const handleMouseLeave = () => {
-    setIsAutoPlaying(true);
   };
 
   return (
@@ -130,13 +109,9 @@ const TimelineSection = () => {
           <p className="section-subtitle">A tradition of excellence since 1926</p>
         </motion.div>
 
-        {/* Desktop Horizontal Timeline */}
-        <div className="hidden lg:block">
-          <div 
-            className="relative"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
+                            {/* Desktop Horizontal Timeline */}
+                    <div className="hidden lg:block">
+                      <div className="relative">
             {/* Timeline Line */}
             <motion.div 
               className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent"
