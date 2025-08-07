@@ -94,7 +94,7 @@ const ValdobbiadeneSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Enhanced DOCG Section with Bottle Images and Larger Logos */}
+        {/* Enhanced DOCG Section with Bottle Images */}
         <div className="text-center">
           <h3 className="text-3xl lg:text-4xl font-bold text-black mb-8">VALDOBBIADENE PROSECCO SUPERIORE DOCG</h3>
           
@@ -131,21 +131,21 @@ const ValdobbiadeneSection: React.FC = () => {
             </motion.div>
           </div>
           
-          {/* DOCG Logos - Made Larger */}
-          <div className="flex justify-center items-center gap-16 mb-12">
+          {/* DOCG Logos - Much Larger */}
+          <div className="flex justify-center items-center gap-20 mb-12">
             <Image
               src="/images/Bottle Shots/numero-10-docg.svg"
               alt="Numero 10 DOCG"
-              width={250}
-              height={125}
-              className="w-auto h-24"
+              width={300}
+              height={150}
+              className="w-auto h-32"
             />
             <Image
               src="/images/Bottle Shots/superiore-docg.svg"
               alt="Superiore DOCG"
-              width={250}
-              height={125}
-              className="w-auto h-24"
+              width={300}
+              height={150}
+              className="w-auto h-32"
             />
           </div>
           

@@ -83,7 +83,7 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
           onClick={onClose}
         >
           <motion.div
-            className="bg-white rounded-lg shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden"
+            className="bg-white rounded-lg shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -108,13 +108,13 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
               </div>
               
               {/* Right side - Wine details */}
-              <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-center overflow-y-auto">
+              <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-start overflow-y-auto">
                 <div className="mb-6">
                   <h2 className="text-2xl lg:text-3xl font-semibold text-black mb-2">{wine.name}</h2>
                   <p className="text-lg text-red-600 font-semibold mb-4">{wine.subtitle}</p>
                 </div>
                 
-                <div className="space-y-6">
+                <div className="space-y-6 flex-grow">
                   <div>
                     <p className="text-base lg:text-lg text-black font-normal leading-relaxed">
                       {wine.description}
@@ -137,7 +137,7 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
                 </div>
                 
                 <motion.button
-                  className="mt-6 px-6 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors text-sm"
+                  className="mt-6 px-6 py-3 bg-gold text-white rounded-lg font-semibold hover:bg-gold/90 transition-colors text-sm"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={onClose}
