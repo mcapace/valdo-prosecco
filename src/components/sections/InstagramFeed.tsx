@@ -8,68 +8,39 @@ export default function InstagramFeed() {
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
-    let retryCount = 0;
-    const maxRetries = 3;
 
-    const loadElfsightWidget = () => {
-      // Check if Elfsight script is already loaded
+    const initializeWidget = () => {
+      // Wait for Elfsight to be available
       if (typeof window !== 'undefined' && window.elfsight) {
-        window.elfsight.init();
-        setIsLoading(false);
-        return;
-      }
-
-      // Load Elfsight script
-      const script = document.createElement('script');
-      script.src = 'https://static.elfsight.com/platform/platform.js';
-      script.async = true;
-      script.defer = true;
-      
-      script.onload = () => {
-        console.log('Elfsight script loaded successfully');
-        if (typeof window !== 'undefined' && window.elfsight) {
+        try {
           window.elfsight.init();
-          setIsLoading(false);
-        }
-      };
-
-      script.onerror = () => {
-        console.error('Failed to load Elfsight script');
-        retryCount++;
-        if (retryCount < maxRetries) {
-          setTimeout(loadElfsightWidget, 2000);
-        } else {
+          console.log('Elfsight initialized successfully');
+          
+          // Check if widget loads within 10 seconds
+          timeoutId = setTimeout(() => {
+            const widget = document.querySelector('.elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160');
+            if (widget && widget.children.length > 0) {
+              console.log('Widget loaded successfully');
+              setIsLoading(false);
+            } else {
+              console.log('Widget failed to load content');
+              setHasError(true);
+              setIsLoading(false);
+            }
+          }, 10000);
+        } catch (error) {
+          console.error('Error initializing Elfsight:', error);
           setHasError(true);
           setIsLoading(false);
         }
-      };
-
-      document.head.appendChild(script);
-    };
-
-    const checkWidgetStatus = () => {
-      const widget = document.querySelector('.elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160');
-      
-      if (widget && widget.children.length > 0) {
-        setIsLoading(false);
-        setHasError(false);
-      } else if (timeoutId) {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-          const widgetAfterDelay = document.querySelector('.elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160');
-          if (!widgetAfterDelay || widgetAfterDelay.children.length === 0) {
-            setHasError(true);
-            setIsLoading(false);
-          }
-        }, 15000); // 15 second timeout
+      } else {
+        // If Elfsight is not available, wait a bit and try again
+        setTimeout(initializeWidget, 1000);
       }
     };
 
-    // Start loading process
-    loadElfsightWidget();
-    
-    // Check widget status after 3 seconds
-    timeoutId = setTimeout(checkWidgetStatus, 3000);
+    // Start initialization
+    initializeWidget();
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
