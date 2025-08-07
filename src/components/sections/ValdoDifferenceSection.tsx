@@ -39,9 +39,9 @@ const valdoDifferenceData = [
   {
     title: "COMMITMENT TO QUALITY",
     description: "Excellence in every bottle",
-    image: "/images/Grapes/_R5A4459 2.jpg",
+    image: "/images/lifestyle/VALDOAMERICA2 5.jpg",
     caption: "Only the finest grapes are selected for Valdo's award-winning Prosecco",
-    alt: "Perfect Glera grape clusters ready for harvest",
+    alt: "Valdo's commitment to quality winemaking",
     link: "https://us.valdo.com/blogs/perlage-magazine/how-prosecco-is-made"
   },
   {
