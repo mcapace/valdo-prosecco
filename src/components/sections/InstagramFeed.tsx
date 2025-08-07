@@ -8,7 +8,6 @@ export default function InstagramFeed() {
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
-    let cleanupInterval: NodeJS.Timeout;
 
     const initializeWidget = () => {
       // Wait for Elfsight to be available
@@ -24,8 +23,8 @@ export default function InstagramFeed() {
               console.log('Widget loaded successfully');
               setIsLoading(false);
               
-              // Start cleaning up banners and improving appearance
-              cleanupBanners();
+              // Add custom styling to hide banners
+              addCustomStyling();
             } else {
               console.log('Widget failed to load content, showing fallback');
               setHasError(true);
@@ -51,83 +50,48 @@ export default function InstagramFeed() {
       }
     };
 
-    const cleanupBanners = () => {
-      // Function to remove banners and promotional elements
-      const removeBanners = () => {
-        // Remove elements containing promotional text
-        const elements = document.querySelectorAll('*');
-        elements.forEach(element => {
-          const text = element.textContent || '';
-          if (text.includes('Free Instagram Feed widget') || 
-              text.includes('Free Instagram') ||
-              text.includes('widget') ||
-              text.includes('banner') ||
-              text.includes('promo')) {
-            (element as HTMLElement).style.display = 'none';
-            element.remove();
-          }
-        });
-
-        // Remove red close buttons
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach(button => {
-          const style = window.getComputedStyle(button);
-          if (style.backgroundColor.includes('red') || 
-              style.background.includes('red') ||
-              button.style.backgroundColor === 'red' ||
-              button.style.background === 'red') {
-            button.style.display = 'none';
-            button.remove();
-          }
-        });
-
-        // Remove elements with specific classes that might be banners
-        const bannerSelectors = [
-          '[class*="banner"]',
-          '[class*="promo"]',
-          '[class*="advertisement"]',
-          '[class*="notification"]',
-          '[class*="close"]',
-          '[class*="dismiss"]',
-          '[class*="free"]'
-        ];
-
-        bannerSelectors.forEach(selector => {
-          const elements = document.querySelectorAll(selector);
-          elements.forEach(element => {
-            (element as HTMLElement).style.display = 'none';
-            element.remove();
-          });
-        });
-
-        // Improve widget appearance
-        const widget = document.querySelector('.elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160');
-        if (widget) {
-          (widget as HTMLElement).style.borderRadius = '12px';
-          (widget as HTMLElement).style.overflow = 'hidden';
-          (widget as HTMLElement).style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+    const addCustomStyling = () => {
+      // Add custom CSS to hide banners and improve widget appearance
+      const style = document.createElement('style');
+      style.textContent = `
+        /* Hide promotional banners using positioning */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 {
+          position: relative !important;
+          overflow: hidden !important;
+          border-radius: 12px !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
         }
-
-        // Style Instagram images
-        const images = document.querySelectorAll('.elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 img');
-        images.forEach(img => {
-          (img as HTMLElement).style.borderRadius = '8px';
-          (img as HTMLElement).style.transition = 'transform 0.3s ease';
-        });
-      };
-
-      // Run cleanup immediately
-      removeBanners();
-
-      // Set up interval to continuously clean up (in case new elements are added)
-      cleanupInterval = setInterval(removeBanners, 1000);
-
-      // Stop cleanup after 30 seconds
-      setTimeout(() => {
-        if (cleanupInterval) {
-          clearInterval(cleanupInterval);
+        
+        /* Hide top banner area */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 > div:first-child {
+          display: none !important;
         }
-      }, 30000);
+        
+        /* Hide any elements with promotional text */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 * {
+          font-family: inherit !important;
+        }
+        
+        /* Style Instagram images */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 img {
+          border-radius: 8px !important;
+          transition: transform 0.3s ease !important;
+        }
+        
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 img:hover {
+          transform: scale(1.02) !important;
+        }
+        
+        /* Hide specific banner elements */
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="banner"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="promo"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="notification"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="close"],
+        .elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160 [class*="dismiss"] {
+          display: none !important;
+        }
+      `;
+      document.head.appendChild(style);
     };
 
     // Start initialization
@@ -135,7 +99,6 @@ export default function InstagramFeed() {
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
-      if (cleanupInterval) clearInterval(cleanupInterval);
     };
   }, []);
 
@@ -174,11 +137,14 @@ export default function InstagramFeed() {
               </div>
             ) : (
               <>
-                {/* Elfsight Instagram Feed */}
-                <div 
-                  className="elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160" 
-                  data-elfsight-app-lazy
-                />
+                {/* Custom wrapper to hide banner area */}
+                <div className="relative overflow-hidden rounded-lg">
+                  {/* Elfsight Instagram Feed */}
+                  <div 
+                    className="elfsight-app-9c837975-e4de-4ea7-8c68-14c70f78a160" 
+                    data-elfsight-app-lazy
+                  />
+                </div>
                 {isLoading && (
                   <div className="text-center py-12">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold mx-auto mb-4"></div>

@@ -30,7 +30,7 @@ const valdoDifferenceData = [
   },
   {
     title: "PIONEER IN CUVÉE",
-    description: "First to introduce Cuvee concept with gentle pressing for Numero 10",
+    description: "In the 1980s Valdo was the first to introduce the French concept of Cuvee' in Prosecco, utilizing different % of grape varietals in the blend with Glera, experimenting long Charmat method and mentioning on the label specific territory of origin of the grapes within Valdobbiadene.",
     image: "/images/lifestyle/Copia di linea(1).jpg",
     caption: "Creating the highest quality for the Valdo family of wines",
     alt: "Valdo Numero 10 DOCG corks and quality seals",
