@@ -8,23 +8,8 @@ const ValdobbiadeneSection: React.FC = () => {
   return (
     <section className="section-minimal bg-beige-light mt-0">
       <div className="container-minimal">
-        {/* Header */}
-        <div className="section-header">
-          <h2 className="section-title">VALDO IS VALDOBBIADENE</h2>
-          <p className="section-subtitle">Named for the village at the historical center of Prosecco, Valdo wines are a direct interpretation of their legendary terroir</p>
-          <div className="text-gold text-lg mb-4 font-semibold">[val·dob·bia·dé·ne]</div>
-          <div className="inline-block p-4 border border-gold rounded-lg">
-            <div className="text-center">
-              <span className="text-lg font-semibold">UNESCO WORLD HERITAGE SITE</span>
-              <p className="text-sm text-black mt-2 font-medium">
-                The Prosecco Hills of Conegliano and Valdobbiadene were inscribed on the UNESCO World Heritage List in 2019
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Enhanced Content Section with Vineyard Background Overlay */}
-        <div className="relative mt-12 mb-16">
+        {/* Header with Vineyard Background Overlay */}
+        <div className="relative mb-16">
           {/* Full-width Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -39,37 +24,54 @@ const ValdobbiadeneSection: React.FC = () => {
           
           {/* Content Overlay with enhanced styling */}
           <div className="relative z-10 p-8 lg:p-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8">
-                <h3 className="text-4xl lg:text-5xl font-bold text-white leading-tight">WHY VALDOBBIADENE?</h3>
-                <div className="space-y-6">
-                  <p className="text-lg lg:text-xl text-white leading-relaxed font-medium">
-                    Valdobbiadene is the heart and soul of exceptional Prosecco production. This extraordinary region in the Veneto province of Italy has been recognized as a UNESCO World Heritage Site for its centuries-old tradition of viticulture and the unique landscape shaped by generations of winemakers.
-                  </p>
-                  <p className="text-lg lg:text-xl text-white leading-relaxed font-medium">
-                    Nestled between the snow-capped mountains and the Adriatic Sea, Valdo's homeland is naturally protected which ensures a productive growth season year-after-year in the hills of Valdobbiadene. Here, the Glera grape reaches its pinnacle.
-                  </p>
-                  <p className="text-lg lg:text-xl text-white leading-relaxed font-medium">
-                    The unique microclimate of Valdobbiadene, with its rolling hills, optimal sun exposure, and perfect soil composition, creates the ideal conditions for growing the finest Glera grapes.
+            <div className="text-center">
+              <h2 className="section-title text-white mb-6">VALDO IS VALDOBBIADENE</h2>
+              <p className="section-subtitle text-white mb-6">Named for the village at the historical center of Prosecco, Valdo wines are a direct interpretation of their legendary terroir</p>
+              <div className="text-gold text-lg mb-6 font-semibold">[val·dob·bia·dé·ne]</div>
+              <div className="inline-block p-4 border border-gold rounded-lg bg-white/10 backdrop-blur-sm">
+                <div className="text-center">
+                  <span className="text-lg font-semibold text-white">UNESCO WORLD HERITAGE SITE</span>
+                  <p className="text-sm text-white mt-2 font-medium">
+                    The Prosecco Hills of Conegliano and Valdobbiadene were inscribed on the UNESCO World Heritage List in 2019
                   </p>
                 </div>
               </div>
-              <motion.div 
-                className="relative"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="rounded-lg overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm">
-                  <Image
-                    src="/images/Vineyards/Copia di Copia di drone_territorio_valdobbiadene.jpg"
-                    alt="Valdobbiadene Vineyards"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </motion.div>
             </div>
+          </div>
+        </div>
+
+        {/* WHY VALDOBBIADENE? Section - Clean Layout */}
+        <div className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <h3 className="text-4xl lg:text-5xl font-bold text-black leading-tight">WHY VALDOBBIADENE?</h3>
+              <div className="space-y-6">
+                <p className="text-lg lg:text-xl text-black leading-relaxed font-medium">
+                  Valdobbiadene is the heart and soul of exceptional Prosecco production. This extraordinary region in the Veneto province of Italy has been recognized as a UNESCO World Heritage Site for its centuries-old tradition of viticulture and the unique landscape shaped by generations of winemakers.
+                </p>
+                <p className="text-lg lg:text-xl text-black leading-relaxed font-medium">
+                  Nestled between the snow-capped mountains and the Adriatic Sea, Valdo's homeland is naturally protected which ensures a productive growth season year-after-year in the hills of Valdobbiadene. Here, the Glera grape reaches its pinnacle.
+                </p>
+                <p className="text-lg lg:text-xl text-black leading-relaxed font-medium">
+                  The unique microclimate of Valdobbiadene, with its rolling hills, optimal sun exposure, and perfect soil composition, creates the ideal conditions for growing the finest Glera grapes.
+                </p>
+              </div>
+            </div>
+            <motion.div 
+              className="relative"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="rounded-lg overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/Vineyards/Copia di Copia di drone_territorio_valdobbiadene.jpg"
+                  alt="Valdobbiadene Vineyards"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
 
