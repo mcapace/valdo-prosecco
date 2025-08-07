@@ -89,8 +89,8 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.05, rotateY: 5 }}
               >
                 <Image
-                  src="/images/Bottle Shots/Marca Oro PROSECCO DOC Brut USA.png"
-                  alt="Valdo Marca Oro PROSECCO DOC Brut"
+                  src="/images/Bottle Shots/Marca Oro Prosecco DOC Brut USA.png"
+                  alt="Valdo Marca Oro Prosecco DOC Brut"
                   width={500}
                   height={1200}
                   className="w-auto h-[500px] lg:h-[600px] drop-shadow-2xl"

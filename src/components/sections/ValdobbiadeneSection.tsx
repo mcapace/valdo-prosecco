@@ -94,11 +94,11 @@ const ValdobbiadeneSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Enhanced DOCG Section with Bottle Images and Logos */}
+        {/* Enhanced DOCG Section with Bottle Images and Larger Logos */}
         <div className="text-center">
           <h3 className="text-3xl lg:text-4xl font-bold text-black mb-8">VALDOBBIADENE PROSECCO SUPERIORE DOCG</h3>
           
-          {/* Wine Bottle Images - Moved up below title */}
+          {/* Wine Bottle Images */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-12">
             <motion.div 
               className="text-center"
@@ -106,7 +106,7 @@ const ValdobbiadeneSection: React.FC = () => {
               transition={{ duration: 0.3 }}
             >
               <Image
-                src="/images/Bottle Shots/Copia di Valdo Numero 10 DOCG 75cl.jpg"
+                src="/images/Bottle Shots/Copia_di_Valdo_Numero_10_DOCG_75cl__2_-removebg-preview.png"
                 alt="Valdo Numero 10 DOCG"
                 width={350}
                 height={900}
@@ -131,25 +131,25 @@ const ValdobbiadeneSection: React.FC = () => {
             </motion.div>
           </div>
           
-          {/* DOCG Logos - Enlarged and positioned below bottles */}
+          {/* DOCG Logos - Made Larger */}
           <div className="flex justify-center items-center gap-16 mb-12">
             <Image
               src="/images/Bottle Shots/numero-10-docg.svg"
               alt="Numero 10 DOCG"
-              width={200}
-              height={100}
-              className="w-auto h-20"
+              width={250}
+              height={125}
+              className="w-auto h-24"
             />
             <Image
               src="/images/Bottle Shots/superiore-docg.svg"
               alt="Superiore DOCG"
-              width={200}
-              height={100}
-              className="w-auto h-20"
+              width={250}
+              height={125}
+              className="w-auto h-24"
             />
           </div>
           
-          {/* New DOCG Text */}
+          {/* DOCG Text */}
           <p className="text-lg lg:text-xl text-black leading-relaxed max-w-4xl mx-auto mb-16 font-medium">
             The prestigious DOCG (Denominazione di Origine Controllata e Garantita) represents Italy's highest quality classification for wines. Only wines produced in the most prestigious vineyards of Valdobbiadene can bear this designation. Valdo wines proudly bear the quality seals of Prosecco Superiore DOCG and Prosecco DOC— delivering a wine that is guaranteed to be more refined, more complex.
           </p>
