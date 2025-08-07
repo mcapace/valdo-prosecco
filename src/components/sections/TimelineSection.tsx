@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const timelineData = [
   {
@@ -22,14 +22,14 @@ const timelineData = [
   {
     year: '1951',
     title: 'THE VALDO NAME IS BORN',
-    description: 'The Bolla Family changed the name of the company to Valdo; in honor of their new homeland: Valdobbiadene ("Vahl-doh-BEE-ah-deh-neh" in Veneto Italy)',
+    description: 'The Bolla Family changed the name of the company to Valdo; in honor of their new homeland: Valdobbiadene ("Vahl-doh-BEE-ah-deh-neh") in Veneto, Italy',
     image: '/images/Historical Photos/Copia di bottiglia-storia-1408x.jpg',
     icon: '🏷️'
   },
   {
     year: '1958',
     title: 'EXPANSION ACROSS ITALY',
-    description: 'The Bolla family continued to invest in Valdobbiadene and their winery- building a reputation throughout Italy for their sparkling wines- for their quality & elegance',
+    description: 'The Bolla family continued to invest in Valdobbiadene and their winery- building a reputation throughout Italy for their sparkling wine with quality & elegance',
     image: '/images/Historical Photos/Picture2.jpg',
     icon: '🇮🇹'
   },
@@ -58,6 +58,7 @@ const timelineData = [
 
 const TimelineSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -66,8 +67,28 @@ const TimelineSection = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
+  // Auto-play functionality with longer duration
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % timelineData.length);
+    }, 8000); // Increased from default to 8 seconds for better reading time
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
   const handleTimelineClick = (index: number) => {
     setActiveIndex(index);
+    setIsAutoPlaying(false); // Stop auto-play when user interacts
+  };
+
+  const handleMouseEnter = () => {
+    setIsAutoPlaying(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAutoPlaying(true);
   };
 
   return (
@@ -118,15 +139,19 @@ const TimelineSection = () => {
 
         {/* Desktop Horizontal Timeline */}
         <div className="hidden lg:block">
-          <div className="relative">
+          <div 
+            className="relative"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             {/* Timeline Line */}
             <motion.div 
               className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent"
               style={{ y }}
             />
             
-            {/* Timeline Items */}
-            <div className="relative flex justify-between items-center py-16">
+            {/* Timeline Items - Fixed positioning to always start with 1926 */}
+            <div className="relative flex justify-between items-center py-16 px-4">
               {timelineData.map((item, index) => (
                 <motion.div
                   key={item.year}
@@ -138,7 +163,7 @@ const TimelineSection = () => {
                 >
                   {/* Timeline Dot */}
                   <motion.div 
-                    className={`w-6 h-6 rounded-full border-4 transition-all duration-300 ${
+                    className={`w-6 h-6 rounded-full border-4 transition-all duration-500 ${
                       activeIndex === index 
                         ? 'bg-gold border-gold scale-125' 
                         : 'bg-beige-light border-gold hover:scale-110'
@@ -148,7 +173,7 @@ const TimelineSection = () => {
                   
                   {/* Year */}
                   <motion.span 
-                    className={`text-sm font-medium mt-4 transition-colors duration-300 ${
+                    className={`text-sm font-medium mt-4 transition-colors duration-500 ${
                       activeIndex === index ? 'text-gold' : 'text-gray-500'
                     }`}
                   >
@@ -165,7 +190,7 @@ const TimelineSection = () => {
             key={activeIndex}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Text Content */}
@@ -174,7 +199,7 @@ const TimelineSection = () => {
                   <h3 className="text-2xl font-semibold text-black mb-4">
                     {timelineData[activeIndex].title}
                   </h3>
-                  <p className="text-black leading-relaxed font-medium">
+                  <p className="text-black leading-relaxed font-medium text-lg">
                     {timelineData[activeIndex].description}
                   </p>
                 </div>
@@ -183,7 +208,7 @@ const TimelineSection = () => {
               {/* Image */}
               <motion.div 
                 className="relative"
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl">
@@ -201,8 +226,69 @@ const TimelineSection = () => {
           </motion.div>
         </div>
 
+        {/* Tablet Timeline - Medium screens */}
+        <div className="hidden md:block lg:hidden">
+          <div className="space-y-8">
+            {timelineData.map((item, index) => (
+              <motion.div
+                key={item.year}
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                {/* Timeline Line */}
+                {index < timelineData.length - 1 && (
+                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gold/30" />
+                )}
+
+                <div className="flex items-start space-x-8">
+                  {/* Timeline Dot */}
+                  <motion.div 
+                    className="w-16 h-16 rounded-full bg-gold flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {item.icon}
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="flex-1 space-y-4">
+                    <div>
+                      <span className="text-sm font-medium text-gold mb-2 block">
+                        {item.year}
+                      </span>
+                      <h3 className="text-xl font-semibold text-black mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-black leading-relaxed font-medium text-base">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* Tablet Image */}
+                    <motion.div 
+                      className="relative overflow-hidden rounded-xl shadow-lg"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={400}
+                        height={300}
+                        className="w-full h-56 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
         {/* Mobile Vertical Timeline */}
-        <div className="lg:hidden">
+        <div className="md:hidden">
           <div className="space-y-6">
             {timelineData.map((item, index) => (
               <motion.div
@@ -232,10 +318,10 @@ const TimelineSection = () => {
                       <span className="text-sm font-medium text-gold mb-2 block">
                         {item.year}
                       </span>
-                      <h3 className="text-xl font-semibold text-black mb-2">
+                      <h3 className="text-lg font-semibold text-black mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-black leading-relaxed font-medium">
+                      <p className="text-black leading-relaxed font-medium text-sm">
                         {item.description}
                       </p>
                     </div>
@@ -243,7 +329,7 @@ const TimelineSection = () => {
                     {/* Mobile Image */}
                     <motion.div 
                       className="relative overflow-hidden rounded-xl shadow-lg"
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.3 }}
                     >
                       <Image
@@ -251,7 +337,7 @@ const TimelineSection = () => {
                         alt={item.title}
                         width={400}
                         height={300}
-                        className="w-full h-48 object-cover"
+                        className="w-full h-40 object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                     </motion.div>

@@ -37,7 +37,7 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen">
             {/* Left side - Logo and text centered */}
             <motion.div 
-              className="text-center lg:text-left flex flex-col items-center lg:items-start justify-center"
+              className="text-center flex flex-col items-center justify-center"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -53,7 +53,7 @@ const HeroSection = () => {
                   alt="Valdo Logo"
                   width={1000}
                   height={500}
-                  className="w-auto h-56 lg:h-80 mx-auto lg:mx-0"
+                  className="w-auto h-56 lg:h-80 mx-auto"
                 />
               </motion.div>
               <motion.p 
