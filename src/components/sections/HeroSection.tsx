@@ -57,18 +57,18 @@ const HeroSection = () => {
                 />
               </motion.div>
               <motion.div 
-                className="hero-subtitle text-center"
+                className="hero-subtitle text-center px-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2 }}
               >
-                <div className="text-5xl lg:text-6xl font-light mb-2 whitespace-nowrap md:whitespace-nowrap sm:whitespace-normal px-4">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2">
                   THE GOLD STANDARD
                 </div>
-                <div className="text-4xl lg:text-5xl font-light mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2">
                   OF
                 </div>
-                <div className="text-5xl lg:text-6xl font-light">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light">
                   PROSECCO
                 </div>
               </motion.div>
