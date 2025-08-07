@@ -62,13 +62,13 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2 }}
               >
-                <div className="text-5xl lg:text-6xl font-light mb-2 whitespace-nowrap">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2 px-4">
                   THE GOLD STANDARD
                 </div>
-                <div className="text-4xl lg:text-5xl font-light mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2">
                   OF
                 </div>
-                <div className="text-5xl lg:text-6xl font-light">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light">
                   PROSECCO
                 </div>
               </motion.div>
@@ -93,25 +93,32 @@ const HeroSection = () => {
                   alt="Valdo Marca Oro Prosecco DOC Brut"
                   width={500}
                   height={1200}
-                  className="w-auto h-[500px] lg:h-[600px] drop-shadow-2xl"
+                  className="w-auto h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px] drop-shadow-2xl"
                 />
               </motion.div>
             </motion.div>
           </div>
         </div>
       </motion.div>
-      
-      {/* Animated scroll indicator */}
+
+      {/* Scroll indicator */}
       <motion.div 
         className="scroll-indicator"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
       >
-        <motion.div 
-          className="w-px h-16 bg-white/50"
-          animate={{ scaleY: [1, 0.5, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
+        <motion.div
+          className="w-full h-full bg-white/30"
+          animate={{ 
+            scaleY: [0, 1, 0],
+            opacity: [0, 1, 0]
+          }}
+          transition={{ 
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
         />
       </motion.div>
     </section>
@@ -119,4 +126,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-// Updated Wed Aug  6 15:34:11 EDT 2025
