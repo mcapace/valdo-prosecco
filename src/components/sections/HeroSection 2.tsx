@@ -15,7 +15,7 @@ const HeroSection = () => {
         className="absolute inset-0 scale-110"
       >
         <Image
-          src="/images/Vineyards/Copia di Copia di dettaglio vigneti.jpg"
+          src="/images/Vineyards/Copia di colline.jpg"
           alt="Valdobbiadene Vineyards"
           fill
           className="hero-image"
@@ -53,11 +53,11 @@ const HeroSection = () => {
                   alt="Valdo Logo"
                   width={1000}
                   height={500}
-                  className="w-auto h-48 lg:h-64 mx-auto lg:mx-0"
+                  className="w-auto h-56 lg:h-80 mx-auto lg:mx-0"
                 />
               </motion.div>
               <motion.p 
-                className="hero-subtitle text-5xl lg:text-6xl font-light text-center lg:text-left"
+                className="hero-subtitle text-5xl lg:text-6xl font-light text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2 }}
