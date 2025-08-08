@@ -232,17 +232,6 @@ const TimelineSection = () => {
                             className="w-full h-80 object-cover"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                          
-                          {/* Wine Glass Icon */}
-                          <motion.div 
-                            className="absolute top-4 right-4 w-8 h-8 bg-gold/90 rounded-full flex items-center justify-center"
-                            animate={isActive ? { rotate: [0, 5, -5, 0] } : {}}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          >
-                            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                          </motion.div>
                         </motion.div>
                       </motion.div>
                     </div>
@@ -253,127 +242,269 @@ const TimelineSection = () => {
           </div>
         </div>
 
-        {/* Tablet Timeline - Medium screens */}
+        {/* Tablet Timeline - Similar to Desktop */}
         <div className="hidden md:block lg:hidden">
-          <div className="space-y-8">
-            {timelineData.map((item, index) => (
-              <motion.div
-                key={item.year}
-                className="relative"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                {/* Timeline Line */}
-                {index < timelineData.length - 1 && (
-                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gold/30" />
-                )}
-
-                <div className="flex items-start space-x-8">
-                  {/* Timeline Dot */}
-                  <motion.div 
-                    className="w-16 h-16 rounded-full bg-gold flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
-                    whileHover={{ scale: 1.1 }}
+          <div className="relative">
+            {/* Central Timeline Line */}
+            <motion.div 
+              className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-gold/30 via-gold to-gold/30 transform -translate-x-1/2"
+              style={{ y }}
+            />
+            
+            {/* Timeline Items */}
+            <div className="space-y-16">
+              {timelineData.map((item, index) => {
+                const isEven = index % 2 === 0;
+                const isActive = activeIndex === index;
+                
+                return (
+                  <motion.div
+                    key={item.year}
+                    className="relative"
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    onClick={() => handleTimelineClick(index)}
                   >
-                    {item.year}
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="flex-1 space-y-4">
-                    <div>
-                      <span className="text-sm font-medium text-gold mb-2 block">
-                        {item.year}
-                      </span>
-                      <h3 className="text-xl font-semibold text-black mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-black leading-relaxed font-medium text-base">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    {/* Tablet Image */}
-                    <motion.div 
-                      className="relative overflow-hidden rounded-xl shadow-lg"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        width={400}
-                        height={300}
-                        className="w-full h-56 object-cover"
+                    {/* Curved Connector Line */}
+                    {index < timelineData.length - 1 && (
+                      <motion.div 
+                        className={`absolute top-16 w-24 h-24 border-2 border-gold/30 rounded-full ${
+                          isEven ? 'left-1/2' : 'right-1/2'
+                        } transform -translate-y-1/2 ${
+                          isEven ? '-translate-x-full' : 'translate-x-full'
+                        }`}
+                        style={{
+                          borderTop: 'none',
+                          borderLeft: isEven ? 'none' : '2px solid rgba(212, 175, 55, 0.3)',
+                          borderRight: isEven ? '2px solid rgba(212, 175, 55, 0.3)' : 'none',
+                          borderBottom: '2px solid rgba(212, 175, 55, 0.3)',
+                          borderRadius: isEven ? '0 0 50% 50%' : '0 0 50% 50%',
+                          transform: isEven 
+                            ? 'translate(-100%, -50%) rotate(90deg)' 
+                            : 'translate(100%, -50%) rotate(-90deg)'
+                        }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                    )}
+
+                    <div className={`flex items-center ${isEven ? 'flex-row' : 'flex-row-reverse'} gap-8`}>
+                      {/* Content Side */}
+                      <motion.div 
+                        className={`flex-1 ${isEven ? 'text-right' : 'text-left'}`}
+                        initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
+                      >
+                        <div className={`max-w-md ${isEven ? 'ml-auto' : 'mr-auto'}`}>
+                          {/* Year Badge */}
+                          <motion.div 
+                            className={`inline-flex items-center px-3 py-1 bg-gold text-white rounded-full text-xs font-bold mb-3 ${
+                              isActive ? 'scale-110' : 'scale-100'
+                            }`}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            {item.year}
+                          </motion.div>
+                          
+                          {/* Title */}
+                          <h3 className={`text-xl font-semibold text-black mb-3 ${
+                            isActive ? 'text-gold' : ''
+                          }`}>
+                            {item.title}
+                          </h3>
+                          
+                          {/* Description */}
+                          <p className="text-black leading-relaxed font-medium text-base">
+                            {item.description}
+                          </p>
+                        </div>
+                      </motion.div>
+
+                      {/* Central Timeline Dot */}
+                      <motion.div 
+                        className="relative z-10 flex-shrink-0"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <motion.div 
+                          className={`w-12 h-12 rounded-full border-4 transition-all duration-500 flex items-center justify-center ${
+                            isActive 
+                              ? 'bg-gold border-gold scale-125 shadow-2xl' 
+                              : 'bg-beige-light border-gold hover:border-gold/80'
+                          }`}
+                        >
+                          <motion.div 
+                            className={`w-6 h-6 rounded-full ${
+                              isActive ? 'bg-white' : 'bg-gold'
+                            }`}
+                            animate={isActive ? { scale: [1, 1.2, 1] } : {}}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          />
+                        </motion.div>
+                      </motion.div>
+
+                      {/* Image Side */}
+                      <motion.div 
+                        className="flex-1"
+                        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
+                      >
+                        <motion.div 
+                          className={`relative overflow-hidden rounded-xl shadow-xl ${
+                            isActive ? 'ring-4 ring-gold/30' : ''
+                          }`}
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            width={400}
+                            height={300}
+                            className="w-full h-56 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                        </motion.div>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Mobile Vertical Timeline */}
+        {/* Mobile Timeline - Similar to Desktop */}
         <div className="md:hidden">
-          <div className="space-y-6">
-            {timelineData.map((item, index) => (
-              <motion.div
-                key={item.year}
-                className="relative"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                {/* Timeline Line */}
-                {index < timelineData.length - 1 && (
-                  <div className="absolute left-6 top-16 bottom-0 w-0.5 bg-gold/30" />
-                )}
-
-                <div className="flex items-start space-x-6">
-                  {/* Timeline Dot */}
-                  <motion.div 
-                    className="w-12 h-12 rounded-full bg-gold flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                    whileHover={{ scale: 1.1 }}
+          <div className="relative">
+            {/* Central Timeline Line */}
+            <motion.div 
+              className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-gold/30 via-gold to-gold/30 transform -translate-x-1/2"
+              style={{ y }}
+            />
+            
+            {/* Timeline Items */}
+            <div className="space-y-12">
+              {timelineData.map((item, index) => {
+                const isEven = index % 2 === 0;
+                const isActive = activeIndex === index;
+                
+                return (
+                  <motion.div
+                    key={item.year}
+                    className="relative"
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    onClick={() => handleTimelineClick(index)}
                   >
-                    {item.year}
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="flex-1 space-y-4">
-                    <div>
-                      <span className="text-sm font-medium text-gold mb-2 block">
-                        {item.year}
-                      </span>
-                      <h3 className="text-lg font-semibold text-black mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-black leading-relaxed font-medium text-sm">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    {/* Mobile Image - Centered */}
-                    <div className="flex justify-center">
+                    {/* Curved Connector Line */}
+                    {index < timelineData.length - 1 && (
                       <motion.div 
-                        className="relative overflow-hidden rounded-xl shadow-lg"
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
+                        className={`absolute top-12 w-16 h-16 border-2 border-gold/30 rounded-full ${
+                          isEven ? 'left-1/2' : 'right-1/2'
+                        } transform -translate-y-1/2 ${
+                          isEven ? '-translate-x-full' : 'translate-x-full'
+                        }`}
+                        style={{
+                          borderTop: 'none',
+                          borderLeft: isEven ? 'none' : '2px solid rgba(212, 175, 55, 0.3)',
+                          borderRight: isEven ? '2px solid rgba(212, 175, 55, 0.3)' : 'none',
+                          borderBottom: '2px solid rgba(212, 175, 55, 0.3)',
+                          borderRadius: isEven ? '0 0 50% 50%' : '0 0 50% 50%',
+                          transform: isEven 
+                            ? 'translate(-100%, -50%) rotate(90deg)' 
+                            : 'translate(100%, -50%) rotate(-90deg)'
+                        }}
+                      />
+                    )}
+
+                    <div className={`flex items-center ${isEven ? 'flex-row' : 'flex-row-reverse'} gap-4`}>
+                      {/* Content Side */}
+                      <motion.div 
+                        className={`flex-1 ${isEven ? 'text-right' : 'text-left'}`}
+                        initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
                       >
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          width={350}
-                          height={250}
-                          className="w-full h-40 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                        <div className={`max-w-xs ${isEven ? 'ml-auto' : 'mr-auto'}`}>
+                          {/* Year Badge */}
+                          <motion.div 
+                            className={`inline-flex items-center px-2 py-1 bg-gold text-white rounded-full text-xs font-bold mb-2 ${
+                              isActive ? 'scale-110' : 'scale-100'
+                            }`}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            {item.year}
+                          </motion.div>
+                          
+                          {/* Title */}
+                          <h3 className={`text-lg font-semibold text-black mb-2 ${
+                            isActive ? 'text-gold' : ''
+                          }`}>
+                            {item.title}
+                          </h3>
+                          
+                          {/* Description */}
+                          <p className="text-black leading-relaxed font-medium text-sm">
+                            {item.description}
+                          </p>
+                        </div>
+                      </motion.div>
+
+                      {/* Central Timeline Dot */}
+                      <motion.div 
+                        className="relative z-10 flex-shrink-0"
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <motion.div 
+                          className={`w-10 h-10 rounded-full border-3 transition-all duration-500 flex items-center justify-center ${
+                            isActive 
+                              ? 'bg-gold border-gold scale-125 shadow-xl' 
+                              : 'bg-beige-light border-gold hover:border-gold/80'
+                          }`}
+                        >
+                          <motion.div 
+                            className={`w-5 h-5 rounded-full ${
+                              isActive ? 'bg-white' : 'bg-gold'
+                            }`}
+                            animate={isActive ? { scale: [1, 1.2, 1] } : {}}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          />
+                        </motion.div>
+                      </motion.div>
+
+                      {/* Image Side */}
+                      <motion.div 
+                        className="flex-1"
+                        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 + 0.4 }}
+                      >
+                        <motion.div 
+                          className={`relative overflow-hidden rounded-lg shadow-lg ${
+                            isActive ? 'ring-2 ring-gold/30' : ''
+                          }`}
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            width={300}
+                            height={200}
+                            className="w-full h-32 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                        </motion.div>
                       </motion.div>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
