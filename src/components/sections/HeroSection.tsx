@@ -73,7 +73,7 @@ const HeroSection = () => {
 
             {/* Right side - Large bottle */}
             <motion.div 
-              className="flex justify-center lg:justify-end"
+              className="flex justify-center lg:justify-end -mt-8 sm:-mt-12 md:-mt-16 lg:mt-0"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
@@ -90,7 +90,7 @@ const HeroSection = () => {
                   alt="Valdo Marca Oro Prosecco DOC Brut"
                   width={500}
                   height={1200}
-                  className="w-auto h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px] drop-shadow-2xl"
+                  className="w-auto h-[350px] sm:h-[400px] md:h-[450px] lg:h-[600px] drop-shadow-2xl"
                 />
               </motion.div>
             </motion.div>
