@@ -242,7 +242,7 @@ const TimelineSection = () => {
 
         {/* Mobile/Tablet Timeline - Improved Scrolling UX */}
         <div className="lg:hidden">
-          <div className="space-y-8">
+          <div className="space-y-12">
             {timelineData.map((item, index) => {
               const isActive = activeIndex === index;
               
@@ -257,10 +257,11 @@ const TimelineSection = () => {
                 >
                   {/* Timeline Line */}
                   {index < timelineData.length - 1 && (
-                    <div className="absolute left-6 top-20 bottom-0 w-0.5 bg-gold/30" />
+                    <div className="absolute left-6 top-16 bottom-0 w-0.5 bg-gold/30" />
                   )}
 
-                  <div className="flex items-start space-x-6">
+                  {/* Year and Circle Above Content */}
+                  <div className="flex items-center space-x-4 mb-6">
                     {/* Timeline Dot */}
                     <motion.div 
                       className="relative z-10 flex-shrink-0"
@@ -283,49 +284,48 @@ const TimelineSection = () => {
                       </motion.div>
                     </motion.div>
 
-                    {/* Content */}
-                    <div className="flex-1 space-y-4">
-                      <div>
-                        {/* Year Badge */}
-                        <motion.div 
-                          className={`inline-flex items-center px-3 py-1 bg-gold text-white rounded-full text-xs font-bold mb-3 ${
-                            isActive ? 'scale-110' : 'scale-100'
-                          }`}
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          {item.year}
-                        </motion.div>
-                        
-                        {/* Title */}
-                        <h3 className={`text-xl font-semibold text-black mb-3 ${
-                          isActive ? 'text-gold' : ''
-                        }`}>
-                          {item.title}
-                        </h3>
-                        
-                        {/* Description */}
-                        <p className="text-black leading-relaxed font-medium text-base">
-                          {item.description}
-                        </p>
-                      </div>
+                    {/* Year Badge */}
+                    <motion.div 
+                      className={`inline-flex items-center px-4 py-2 bg-gold text-white rounded-full text-sm font-bold ${
+                        isActive ? 'scale-110' : 'scale-100'
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {item.year}
+                    </motion.div>
+                  </div>
 
-                      {/* Large Image - Full Width */}
-                      <motion.div 
-                        className="relative overflow-hidden rounded-xl shadow-xl"
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          width={600}
-                          height={400}
-                          className="w-full h-64 md:h-80 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      </motion.div>
+                  {/* Content */}
+                  <div className="space-y-6">
+                    {/* Title and Description */}
+                    <div>
+                      <h3 className={`text-2xl font-semibold text-black mb-4 ${
+                        isActive ? 'text-gold' : ''
+                      }`}>
+                        {item.title}
+                      </h3>
+                      
+                      <p className="text-black leading-relaxed font-medium text-lg">
+                        {item.description}
+                      </p>
                     </div>
+
+                    {/* Large Image - Full Width */}
+                    <motion.div 
+                      className="relative overflow-hidden rounded-xl shadow-xl"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        width={800}
+                        height={500}
+                        className="w-full h-80 md:h-96 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                    </motion.div>
                   </div>
                 </motion.div>
               );

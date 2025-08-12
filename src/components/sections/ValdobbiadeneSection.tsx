@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 const ValdobbiadeneSection: React.FC = () => {
   return (
     <section className="section-minimal bg-beige-light mt-0">
-      {/* OCM Logo - Small and readable under hero on left */}
-      <div className="container-minimal mb-8">
+      {/* OCM Logo - Small logo on bottom left */}
+      <div className="container-minimal mb-4">
         <motion.div 
           className="flex justify-start items-center"
           initial={{ opacity: 0, x: -20 }}
@@ -18,11 +18,11 @@ const ValdobbiadeneSection: React.FC = () => {
           <Image
             src="/images/Logos/OCM_Logo__1_-removebg-preview.png"
             alt="OCM Logo"
-            width={200}
-            height={100}
-            className="w-auto h-12 lg:h-16"
+            width={150}
+            height={75}
+            className="w-auto h-8 lg:h-10"
           />
-          <span className="text-sm text-gray-600 ml-3 font-medium">Official Partner</span>
+          <span className="text-xs text-gray-500 ml-2 font-medium">Official Partner</span>
         </motion.div>
       </div>
       
@@ -134,8 +134,8 @@ const ValdobbiadeneSection: React.FC = () => {
         <div className="text-center">
           <h3 className="text-3xl lg:text-4xl font-bold text-black mb-8">VALDOBBIADENE PROSECCO SUPERIORE DOCG</h3>
           
-          {/* Wine Bottle Images with Centered DOCG Medallion */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-8">
+          {/* Wine Bottle Images with DOCG Medallion Between */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8 items-center">
             <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
@@ -149,6 +149,21 @@ const ValdobbiadeneSection: React.FC = () => {
                 className="w-auto h-96 mx-auto mb-4"
               />
               <h4 className="text-xl font-bold text-black">Numero 10 DOCG</h4>
+            </motion.div>
+            
+            {/* Centered DOCG Medallion */}
+            <motion.div 
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src="/images/Logos/docg-removebg-preview.png"
+                alt="DOCG Medallion"
+                width={600}
+                height={300}
+                className="w-auto h-32 lg:h-40 mx-auto"
+              />
             </motion.div>
             
             <motion.div 
@@ -165,17 +180,6 @@ const ValdobbiadeneSection: React.FC = () => {
               />
               <h4 className="text-xl font-bold text-black">Superiore DOCG</h4>
             </motion.div>
-          </div>
-          
-          {/* Centered DOCG Medallion */}
-          <div className="flex justify-center items-center mb-8">
-            <Image
-              src="/images/Logos/docg-removebg-preview.png"
-              alt="DOCG Medallion"
-              width={600}
-              height={300}
-              className="w-auto h-32 lg:h-40"
-            />
           </div>
           
           {/* DOCG Text */}
