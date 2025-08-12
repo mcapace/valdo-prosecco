@@ -106,6 +106,19 @@ const Navigation = () => {
               {item.name}
             </button>
           ))}
+          
+          {/* OCM Logo */}
+          <div style={{ marginLeft: '16px', display: 'flex', alignItems: 'center' }}>
+            <img 
+              src="/images/Logos/Untitled design.png" 
+              alt="OCM Logo" 
+              style={{ 
+                height: '32px',
+                filter: 'brightness(0) invert(1)',
+                opacity: '0.8'
+              }}
+            />
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
