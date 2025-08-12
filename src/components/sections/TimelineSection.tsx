@@ -255,10 +255,7 @@ const TimelineSection = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   onClick={() => handleTimelineClick(index)}
                 >
-                  {/* Timeline Line - Only between sections, not through content */}
-                  {index < timelineData.length - 1 && (
-                    <div className="absolute left-1/2 top-32 bottom-0 w-0.5 bg-gold/30 transform -translate-x-1/2" />
-                  )}
+                  {/* Timeline Line - Removed for mobile to avoid going through text */}
 
                   {/* Year Centered Above Content */}
                   <div className="text-center mb-8">
