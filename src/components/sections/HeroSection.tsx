@@ -15,7 +15,7 @@ const HeroSection = () => {
         className="absolute inset-0 scale-110"
       >
         <Image
-          src="/images/Vineyards/Copia di colline.jpg"
+          src="/images/Vineyards/Copia di Copia di vigneti 2.jpg"
           alt="Valdobbiadene Vineyards"
           fill
           className="hero-image"
