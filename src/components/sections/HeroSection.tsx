@@ -56,22 +56,6 @@ const HeroSection = () => {
                   className="w-auto h-48 sm:h-56 lg:h-80 mx-auto"
                 />
               </motion.div>
-              
-              {/* OCM Logo in Hero */}
-              <motion.div 
-                className="mb-4"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 1.0 }}
-              >
-                <Image
-                  src="/images/Logos/OCM_Logo__1_-removebg-preview.png"
-                  alt="OCM Logo"
-                  width={400}
-                  height={200}
-                  className="w-auto h-16 sm:h-20 lg:h-24 mx-auto"
-                />
-              </motion.div>
               <motion.div 
                 className="hero-subtitle text-center px-4"
                 initial={{ opacity: 0, y: 20 }}

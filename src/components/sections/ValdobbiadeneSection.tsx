@@ -7,6 +7,25 @@ import { motion } from 'framer-motion';
 const ValdobbiadeneSection: React.FC = () => {
   return (
     <section className="section-minimal bg-beige-light mt-0">
+      {/* OCM Logo - Small and readable under hero on left */}
+      <div className="container-minimal mb-8">
+        <motion.div 
+          className="flex justify-start items-center"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Image
+            src="/images/Logos/OCM_Logo__1_-removebg-preview.png"
+            alt="OCM Logo"
+            width={200}
+            height={100}
+            className="w-auto h-12 lg:h-16"
+          />
+          <span className="text-sm text-gray-600 ml-3 font-medium">Official Partner</span>
+        </motion.div>
+      </div>
+      
       <div className="container-minimal">
         {/* Header with Vineyard Background Overlay */}
         <div className="relative mb-16">
