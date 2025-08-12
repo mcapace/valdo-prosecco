@@ -40,8 +40,6 @@ const wines = [
     details: [
       'Carefully produced with research in the winery',
       'Triumphant Brut dosage expresses the passion of the Bolla family',
-      'Vocation and typicality of the terroir',
-      'Futurist inspiration from 1926 Venice Biennale',
       'Label draws inspiration from the works of Giacomo Balla',
       'Leading exponent of the Futurist movement'
     ]

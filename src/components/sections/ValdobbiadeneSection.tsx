@@ -75,21 +75,39 @@ const ValdobbiadeneSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Google Maps Embed - Above DOCG Section */}
+        {/* Maps Section - Italy and Valdobbiadene */}
         <div className="text-center mb-16">
           <h3 className="text-3xl lg:text-4xl font-bold text-black mb-8">EXPLORE VALDOBBIADENE</h3>
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-5xl">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26091.627404168434!2d11.970047620220445!3d45.89259399936332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13!1!3m3!1m2!1s0x47791f036175e295%3A0x407098715915c90!2s31049%20Valdobbiadene%2C%20Province%20of%20Treviso%2C%20Italy!5e1!3m2!1sen!2sus!4v1754337828951!5m2!1sen!2sus" 
-                width="100%" 
-                height="500" 
-                style={{border:0}} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                className="rounded-lg shadow-xl"
-              />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8">
+            {/* Italy Map */}
+            <div className="text-center">
+              <div className="relative rounded-lg overflow-hidden shadow-xl mb-4">
+                <Image
+                  src="/images/maps/italy-veneto-highlighted.png"
+                  alt="Italy map showing Veneto region"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <p className="text-lg font-semibold text-black">Located in Veneto, Northern Italy</p>
+            </div>
+            
+            {/* Valdobbiadene Map */}
+            <div className="text-center">
+              <div className="relative rounded-lg overflow-hidden shadow-xl mb-4">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26091.627404168434!2d11.970047620220445!3d45.89259399936332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13!1!3m3!1m2!1s0x47791f036175e295%3A0x407098715915c90!2s31049%20Valdobbiadene%2C%20Province%20of%20Treviso%2C%20Italy!5e1!3m2!1sen!2sus!4v1754337828951!5m2!1sen!2sus" 
+                  width="100%" 
+                  height="400" 
+                  style={{border:0}} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-lg"
+                />
+              </div>
+              <p className="text-lg font-semibold text-black">Valdobbiadene in the Veneto Region</p>
             </div>
           </div>
         </div>
@@ -98,8 +116,8 @@ const ValdobbiadeneSection: React.FC = () => {
         <div className="text-center">
           <h3 className="text-3xl lg:text-4xl font-bold text-black mb-8">VALDOBBIADENE PROSECCO SUPERIORE DOCG</h3>
           
-          {/* Wine Bottle Images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-12">
+          {/* Wine Bottle Images with Centered DOCG Medallion */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-8">
             <motion.div 
               className="text-center"
               whileHover={{ scale: 1.05 }}
@@ -131,11 +149,11 @@ const ValdobbiadeneSection: React.FC = () => {
             </motion.div>
           </div>
           
-          {/* DOCG Logos */}
-          <div className="flex justify-center items-center mb-12">
+          {/* Centered DOCG Medallion */}
+          <div className="flex justify-center items-center mb-8">
             <Image
               src="/images/Logos/Screenshot_2025-08-07_at_10.37.40_AM-removebg-preview.png"
-              alt="DOCG Logos"
+              alt="DOCG Medallion"
               width={600}
               height={300}
               className="w-auto h-32 lg:h-40"
@@ -144,7 +162,7 @@ const ValdobbiadeneSection: React.FC = () => {
           
           {/* DOCG Text */}
           <p className="text-lg lg:text-xl text-black leading-relaxed max-w-4xl mx-auto mb-16 font-medium">
-            The prestigious DOCG (Denominazione di Origine Controllata e Garantita) represents Italy's highest quality classification for wines. Only wines produced in the most prestigious vineyards of Valdobbiadene can bear this designation. Valdo wines proudly bear the quality seals of Prosecco Superiore DOCG and Prosecco DOC— delivering a wine that is guaranteed to be more refined, more complex.
+            The prestigious DOCG (Denominazione di Origine Controllata e Garantita) represents Italy's highest quality classification for wines. Only wines produced in the most prestigious vineyards of Valdobbiadene can bear this designation. Valdo wines proudly bear the quality seal of Prosecco Superiore DOCG— delivering a wine that is guaranteed to be more refined, more complex.
           </p>
         </div>
       </div>

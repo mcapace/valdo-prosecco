@@ -43,7 +43,7 @@ const HeroSection = () => {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <motion.div 
-                className="mb-8"
+                className="mb-6 lg:mb-8"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
@@ -53,7 +53,7 @@ const HeroSection = () => {
                   alt="Valdo Logo"
                   width={1000}
                   height={500}
-                  className="w-auto h-56 lg:h-80 mx-auto"
+                  className="w-auto h-48 sm:h-56 lg:h-80 mx-auto"
                 />
               </motion.div>
               <motion.div 
@@ -62,14 +62,11 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2 }}
               >
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2">
                   THE GOLD STANDARD
                 </div>
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2">
-                  OF
-                </div>
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light">
-                  PROSECCO
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light">
+                  OF PROSECCO
                 </div>
               </motion.div>
             </motion.div>
@@ -93,7 +90,7 @@ const HeroSection = () => {
                   alt="Valdo Marca Oro Prosecco DOC Brut"
                   width={500}
                   height={1200}
-                  className="w-auto h-[500px] lg:h-[600px] drop-shadow-2xl"
+                  className="w-auto h-[400px] sm:h-[450px] md:h-[500px] lg:h-[600px] drop-shadow-2xl"
                 />
               </motion.div>
             </motion.div>
@@ -103,23 +100,22 @@ const HeroSection = () => {
 
       {/* Scroll indicator */}
       <motion.div 
-        className="scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 1 }}
       >
         <motion.div
-          className="w-full h-full bg-white/30"
-          animate={{ 
-            scaleY: [0, 1, 0],
-            opacity: [0, 1, 0]
-          }}
-          transition={{ 
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+          className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <motion.div
+            className="w-1 h-3 bg-white rounded-full mt-2"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </motion.div>
       </motion.div>
     </section>
   );
