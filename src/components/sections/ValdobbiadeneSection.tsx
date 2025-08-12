@@ -90,10 +90,6 @@ const ValdobbiadeneSection: React.FC = () => {
                   fill
                   className="object-contain"
                 />
-                {/* Veneto Region Highlight Circle */}
-                <div className="absolute top-1/3 left-1/3 w-14 h-14 border-4 border-gold rounded-full bg-gold/30 animate-pulse shadow-lg">
-                  <div className="absolute inset-0 bg-gold/50 rounded-full animate-ping"></div>
-                </div>
               </div>
               <p className="text-lg font-semibold text-black">Located in Veneto, Northern Italy</p>
             </div>
