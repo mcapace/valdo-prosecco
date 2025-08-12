@@ -151,7 +151,7 @@ const ValdobbiadeneSection: React.FC = () => {
           {/* Centered DOCG Medallion */}
           <div className="flex justify-center items-center mb-8">
             <Image
-              src="/images/Logos/docg.png"
+              src="/images/Logos/docg-removebg-preview.png"
               alt="DOCG Medallion"
               width={600}
               height={300}
