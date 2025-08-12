@@ -62,10 +62,10 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2 }}
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2 whitespace-nowrap">
                   THE GOLD STANDARD
                 </div>
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light whitespace-nowrap">
                   OF PROSECCO
                 </div>
               </motion.div>

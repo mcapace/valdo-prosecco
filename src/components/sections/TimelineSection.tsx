@@ -242,7 +242,7 @@ const TimelineSection = () => {
 
         {/* Mobile/Tablet Timeline - Improved Scrolling UX */}
         <div className="lg:hidden">
-          <div className="space-y-12">
+          <div className="space-y-16">
             {timelineData.map((item, index) => {
               const isActive = activeIndex === index;
               
@@ -255,13 +255,13 @@ const TimelineSection = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   onClick={() => handleTimelineClick(index)}
                 >
-                  {/* Timeline Line */}
+                  {/* Timeline Line - Only between sections, not through content */}
                   {index < timelineData.length - 1 && (
-                    <div className="absolute left-1/2 top-20 bottom-0 w-0.5 bg-gold/30 transform -translate-x-1/2" />
+                    <div className="absolute left-1/2 top-32 bottom-0 w-0.5 bg-gold/30 transform -translate-x-1/2" />
                   )}
 
                   {/* Year Centered Above Content */}
-                  <div className="text-center mb-6">
+                  <div className="text-center mb-8">
                     {/* Year Badge */}
                     <motion.div 
                       className={`inline-flex items-center px-6 py-3 bg-gold text-white rounded-full text-lg font-bold mb-4 ${
@@ -297,7 +297,7 @@ const TimelineSection = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="space-y-6">
+                  <div className="space-y-8">
                     {/* Title and Description */}
                     <div>
                       <h3 className={`text-2xl font-semibold text-black mb-4 ${

@@ -8,7 +8,7 @@ const ValdobbiadeneSection: React.FC = () => {
   return (
     <section className="section-minimal bg-beige-light mt-0">
       {/* OCM Logo - Small logo on bottom left */}
-      <div className="container-minimal mb-4">
+      <div className="container-minimal mb-6">
         <motion.div 
           className="flex justify-start items-center"
           initial={{ opacity: 0, x: -20 }}
@@ -20,9 +20,9 @@ const ValdobbiadeneSection: React.FC = () => {
             alt="OCM Logo"
             width={150}
             height={75}
-            className="w-auto h-8 lg:h-10"
+            className="w-auto h-10 lg:h-12"
           />
-          <span className="text-xs text-gray-500 ml-2 font-medium">Official Partner</span>
+          <span className="text-sm text-gray-600 ml-3 font-medium">Official Partner</span>
         </motion.div>
       </div>
       
