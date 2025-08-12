@@ -27,9 +27,9 @@ const OCMLogoSection = () => {
             <Image
               src="/images/Logos/Untitled design.png"
               alt="OCM Logo"
-              width={120}
-              height={60}
-              className="w-auto h-10 lg:h-12"
+              width={200}
+              height={100}
+              className="w-auto h-12 lg:h-14"
               style={{ imageRendering: 'crisp-edges', objectFit: 'contain' }}
             />
           </motion.div>

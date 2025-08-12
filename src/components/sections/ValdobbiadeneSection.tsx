@@ -83,15 +83,15 @@ const ValdobbiadeneSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8">
             {/* Italy Map */}
             <div className="text-center">
-              <div className="relative rounded-lg overflow-hidden shadow-xl mb-4 h-[400px]">
+              <div className="relative rounded-lg overflow-hidden shadow-xl mb-4 h-[500px]">
                 <Image
                   src="/images/Maps/ChatGPT Image Aug 12, 2025, 06_16_07 PM.png"
                   alt="Italy map showing Veneto region"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
                 {/* Veneto Region Highlight Circle */}
-                <div className="absolute top-1/3 left-1/4 w-12 h-12 border-3 border-gold rounded-full bg-gold/40 animate-pulse shadow-lg">
+                <div className="absolute top-1/2 left-1/2 w-16 h-16 border-4 border-gold rounded-full bg-gold/30 animate-pulse shadow-lg">
                   <div className="absolute inset-0 bg-gold/50 rounded-full animate-ping"></div>
                 </div>
               </div>
