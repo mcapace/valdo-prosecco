@@ -30,6 +30,7 @@ const OCMLogoSection = () => {
               width={120}
               height={60}
               className="w-auto h-10 lg:h-12"
+              style={{ imageRendering: 'crisp-edges', objectFit: 'contain' }}
             />
           </motion.div>
           <motion.p 

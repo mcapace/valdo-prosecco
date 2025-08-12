@@ -113,9 +113,12 @@ const Navigation = () => {
               src="/images/Logos/Untitled design.png" 
               alt="OCM Logo" 
               style={{ 
-                height: '32px',
+                height: '36px',
+                width: 'auto',
                 filter: 'brightness(0) invert(1)',
-                opacity: '0.8'
+                opacity: '0.9',
+                imageRendering: 'crisp-edges',
+                objectFit: 'contain'
               }}
             />
           </div>
