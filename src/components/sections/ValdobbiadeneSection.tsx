@@ -81,13 +81,12 @@ const ValdobbiadeneSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8">
             {/* Italy Map */}
             <div className="text-center">
-              <div className="relative rounded-lg overflow-hidden shadow-xl mb-4">
+              <div className="relative rounded-lg overflow-hidden shadow-xl mb-4 h-[400px]">
                 <Image
-                  src="/images/maps/italy-veneto-highlighted.png"
+                  src="/images/Maps/mapswire-it-physical-map-italy-lcc-129.jpg"
                   alt="Italy map showing Veneto region"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
               <p className="text-lg font-semibold text-black">Located in Veneto, Northern Italy</p>
@@ -95,11 +94,11 @@ const ValdobbiadeneSection: React.FC = () => {
             
             {/* Valdobbiadene Map */}
             <div className="text-center">
-              <div className="relative rounded-lg overflow-hidden shadow-xl mb-4">
+              <div className="relative rounded-lg overflow-hidden shadow-xl mb-4 h-[400px]">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26091.627404168434!2d11.970047620220445!3d45.89259399936332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13!1!3m3!1m2!1s0x47791f036175e295%3A0x407098715915c90!2s31049%20Valdobbiadene%2C%20Province%20of%20Treviso%2C%20Italy!5e1!3m2!1sen!2sus!4v1754337828951!5m2!1sen!2sus" 
                   width="100%" 
-                  height="400" 
+                  height="100%" 
                   style={{border:0}} 
                   allowFullScreen 
                   loading="lazy" 
@@ -152,7 +151,7 @@ const ValdobbiadeneSection: React.FC = () => {
           {/* Centered DOCG Medallion */}
           <div className="flex justify-center items-center mb-8">
             <Image
-              src="/images/Logos/Screenshot_2025-08-07_at_10.37.40_AM-removebg-preview.png"
+              src="/images/Logos/docg.png"
               alt="DOCG Medallion"
               width={600}
               height={300}
