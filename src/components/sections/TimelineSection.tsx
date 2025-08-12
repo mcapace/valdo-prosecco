@@ -257,42 +257,42 @@ const TimelineSection = () => {
                 >
                   {/* Timeline Line */}
                   {index < timelineData.length - 1 && (
-                    <div className="absolute left-6 top-16 bottom-0 w-0.5 bg-gold/30" />
+                    <div className="absolute left-1/2 top-20 bottom-0 w-0.5 bg-gold/30 transform -translate-x-1/2" />
                   )}
 
-                  {/* Year and Circle Above Content */}
-                  <div className="flex items-center space-x-4 mb-6">
-                    {/* Timeline Dot */}
-                    <motion.div 
-                      className="relative z-10 flex-shrink-0"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <motion.div 
-                        className={`w-12 h-12 rounded-full border-4 transition-all duration-500 flex items-center justify-center ${
-                          isActive 
-                            ? 'bg-gold border-gold scale-125 shadow-xl' 
-                            : 'bg-beige-light border-gold hover:border-gold/80'
-                        }`}
-                      >
-                        <motion.div 
-                          className={`w-6 h-6 rounded-full ${
-                            isActive ? 'bg-white' : 'bg-gold'
-                          }`}
-                          animate={isActive ? { scale: [1, 1.2, 1] } : {}}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                      </motion.div>
-                    </motion.div>
-
+                  {/* Year Centered Above Content */}
+                  <div className="text-center mb-6">
                     {/* Year Badge */}
                     <motion.div 
-                      className={`inline-flex items-center px-4 py-2 bg-gold text-white rounded-full text-sm font-bold ${
+                      className={`inline-flex items-center px-6 py-3 bg-gold text-white rounded-full text-lg font-bold mb-4 ${
                         isActive ? 'scale-110' : 'scale-100'
                       }`}
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
                       {item.year}
+                    </motion.div>
+                    
+                    {/* Timeline Dot */}
+                    <motion.div 
+                      className="relative z-10 flex justify-center"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <motion.div 
+                        className={`w-10 h-10 rounded-full border-4 transition-all duration-500 flex items-center justify-center ${
+                          isActive 
+                            ? 'bg-gold border-gold scale-125 shadow-xl' 
+                            : 'bg-beige-light border-gold hover:border-gold/80'
+                        }`}
+                      >
+                        <motion.div 
+                          className={`w-5 h-5 rounded-full ${
+                            isActive ? 'bg-white' : 'bg-gold'
+                          }`}
+                          animate={isActive ? { scale: [1, 1.2, 1] } : {}}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        />
+                      </motion.div>
                     </motion.div>
                   </div>
 

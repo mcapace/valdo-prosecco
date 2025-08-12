@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const OCMLogoSection = () => {
   return (
     <motion.section 
-      className="py-6 bg-beige-light"
+      className="py-4 bg-beige-light"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
@@ -27,13 +27,13 @@ const OCMLogoSection = () => {
             <Image
               src="/images/Logos/OCM_Logo__1_-removebg-preview.png"
               alt="OCM Logo"
-              width={200}
-              height={100}
-              className="w-auto h-12 lg:h-16"
+              width={120}
+              height={60}
+              className="w-auto h-8 lg:h-10"
             />
           </motion.div>
           <motion.p 
-            className="text-xs text-gray-500 mt-2 font-medium"
+            className="text-xs text-gray-400 mt-1 font-medium"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
