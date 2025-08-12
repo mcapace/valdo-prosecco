@@ -25,7 +25,7 @@ const OCMLogoSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Image
-              src="/images/Logos/OCM_Logo__1_-removebg-preview.png"
+              src="/images/Logos/loghi_colori_EN-1-1024x152-removebg-preview.png"
               alt="OCM Logo"
               width={120}
               height={60}
