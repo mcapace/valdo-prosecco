@@ -65,7 +65,7 @@ const HeroSection = () => {
                 transition={{ duration: 1, delay: 1.0 }}
               >
                 <Image
-                  src="/images/Logos/OCM Logo (1).png"
+                  src="/images/Logos/OCM_Logo__1_-removebg-preview.png"
                   alt="OCM Logo"
                   width={400}
                   height={200}
