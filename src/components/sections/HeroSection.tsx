@@ -43,7 +43,7 @@ const HeroSection = () => {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <motion.div 
-                className="mb-4 lg:mb-6"
+                className="mb-2 lg:mb-4"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
