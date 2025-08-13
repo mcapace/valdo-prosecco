@@ -20,6 +20,10 @@ const HeroSection = () => {
           fill
           className="hero-image"
           priority
+          style={{
+            objectFit: 'cover',
+            objectPosition: 'center center'
+          }}
         />
       </motion.div>
       
@@ -54,6 +58,10 @@ const HeroSection = () => {
                   width={1000}
                   height={500}
                   className="w-auto h-48 sm:h-56 lg:h-80 mx-auto"
+                  style={{
+                    imageRendering: 'crisp-edges',
+                    objectFit: 'contain'
+                  }}
                 />
               </motion.div>
               <motion.div 
@@ -71,12 +79,17 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right side - Large bottle */}
+            {/* Right side - Large bottle with Windows-specific positioning */}
             <motion.div 
               className="flex justify-center lg:justify-end -mt-8 sm:-mt-12 md:-mt-16 lg:mt-0"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
+              style={{
+                /* Windows display scaling fix */
+                transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden'
+              }}
             >
               <motion.div
                 className="relative"
@@ -84,6 +97,11 @@ const HeroSection = () => {
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                 transition={{ duration: 1.2, delay: 1 }}
                 whileHover={{ scale: 1.05, rotateY: 5 }}
+                style={{
+                  /* Ensure proper rendering on Windows */
+                  transformStyle: 'preserve-3d',
+                  perspective: '1000px'
+                }}
               >
                 <Image
                   src="/images/Bottle Shots/Marca Oro Prosecco DOC Brut USA.png"
@@ -91,6 +109,18 @@ const HeroSection = () => {
                   width={500}
                   height={1200}
                   className="w-auto h-[350px] sm:h-[400px] md:h-[450px] lg:h-[600px] drop-shadow-2xl"
+                  style={{
+                    /* Windows-specific image rendering fixes */
+                    imageRendering: 'crisp-edges',
+                    objectFit: 'contain',
+                    objectPosition: 'center bottom',
+                    /* Prevent bottle cutoff on Windows */
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    /* Force hardware acceleration */
+                    transform: 'translateZ(0)',
+                    backfaceVisibility: 'hidden'
+                  }}
                 />
               </motion.div>
             </motion.div>

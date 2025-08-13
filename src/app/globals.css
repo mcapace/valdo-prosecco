@@ -214,6 +214,11 @@ body {
   position: relative;
   overflow: hidden;
   padding-top: 64px; /* Account for fixed navigation */
+  /* Windows display scaling fixes */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .hero-image {
@@ -222,6 +227,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Windows-specific image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .hero-overlay {
@@ -239,6 +249,11 @@ body {
   justify-content: center;
   text-align: center;
   color: var(--color-white);
+  /* Windows display scaling compatibility */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .hero-title {
@@ -772,5 +787,49 @@ body {
     linear-gradient(90deg, rgba(212, 175, 55, 0.02) 1px, transparent 1px);
   background-size: 20px 20px;
   pointer-events: none;
+}
+
+/* Windows/Surface Display Scaling Fixes */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* Internet Explorer and Edge specific fixes */
+  .hero-minimal {
+    -ms-transform: translateZ(0);
+    -ms-backface-visibility: hidden;
+  }
+  
+  .hero-image {
+    -ms-transform: translateZ(0);
+    -ms-backface-visibility: hidden;
+  }
+}
+
+/* Windows Display Scaling (125%, 150%, 175%) */
+@media screen and (min-resolution: 120dpi) {
+  .hero-minimal {
+    /* Ensure proper scaling on high DPI displays */
+    transform: scale(1);
+    transform-origin: top left;
+  }
+  
+  .hero-image {
+    /* Prevent image distortion on high DPI */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Surface Device Specific Fixes */
+@media screen and (min-width: 768px) and (max-width: 1366px) and (min-resolution: 120dpi) {
+  .hero-minimal {
+    /* Surface Pro/Book specific adjustments */
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    /* Ensure content fits properly on Surface */
+    max-width: 100vw;
+    max-height: 100vh;
+  }
 }
 
