@@ -8,7 +8,7 @@ const timelineData = [
   {
     year: '1926',
     title: 'THE FOUNDATION',
-    description: 'It all began in Valdobbiadene, Veneto, Italy in 1926 with 4 entrepreneurs who recognized Valdobbiadene as the perfect location for producing exceptional sparkling wines with the local indigenous grape- the Glera grape. The company was called Societa\' Anonima Vini Superiori- the very first sparkling wine house in the region',
+    description: 'It all began in Valdobbiadene, Veneto, Italy in 1926 with 4 entrepreneurs who recognized Valdobbiadene as the perfect location for producing exceptional sparkling wines with the local indigenous grape — the Glera grape. The company was called Societa\' Anonima Vini Superiori — the very first sparkling wine house in the region',
     image: '/images/Historical Photos/Copia di imbottigliamento-1408x.jpg'
   },
   {
