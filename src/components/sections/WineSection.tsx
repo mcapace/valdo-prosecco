@@ -39,7 +39,7 @@ const wines = [
     description: 'A tribute to the tradition of Valdobbiadene, a proud tribute to the history of Valdo, which began in 1926 and has always looked towards the future.',
     details: [
       'Carefully produced with research in the winery',
-      'Triumphant Brut dosage expresses the passion of the Bolla family',
+      'Aromatic and intense, rich in bright floral nuances',
       'Label draws inspiration from the works of Giacomo Balla',
       'Leading exponent of the Futurist movement'
     ]
