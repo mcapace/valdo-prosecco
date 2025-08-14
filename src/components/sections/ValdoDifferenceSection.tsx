@@ -8,7 +8,7 @@ const valdoDifferenceData = [
     title: "DECADES OF FAMILY PARTNERSHIP",
     description: "Chief Winemaker Gianfranco Zanon leads our winemaking with regional grower families",
     image: "/images/Winemaker/Copia di Gianfranco Zanon(1).jpg",
-    caption: "Four generations of Bolla family winemaking tradition",
+    caption: "Four generations of Bolla family tradition",
     alt: "Valdo Chief Winemaker Gianfranco Zanon in the vineyards of Valdobbiadene",
     link: "https://us.valdo.com/pages/prosecco-history-and-facts"
   },

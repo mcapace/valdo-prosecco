@@ -13,9 +13,9 @@ const Navigation = () => {
   }, []);
 
   const menuItems = [
-    { name: 'The Bolla Legacy', href: '#timeline' },
+    { name: 'Legacy', href: '#timeline' },
     { name: 'Valdobbiadene', href: '#valdobbiadene' },
-    { name: 'Valdo Difference', href: '#difference' },
+    { name: 'The Valdo Difference', href: '#difference' },
     { name: 'The Wines', href: '#wines' },
     { name: 'Casa Valdo', href: '#casa' },
     { name: 'Like an Italian', href: '#lifestyle' }
