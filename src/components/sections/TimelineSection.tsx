@@ -13,7 +13,7 @@ const timelineData = [
   },
   {
     year: '1938',
-    title: 'THE BOLLA FAMILY TAKES OVER',
+    title: 'THE BOLLA FAMILY ERA BEGINS',
     description: 'Sergio Bolla was passionate about the hills of Valdobbiadene and visited there often from his home in Soave, Veneto. On his many visits to Valdobbiadene, he came to enjoy this sparkling wine from Societa Anonima known as Prosecco. He enjoyed it so much that in 1938, in the name of the Bolla Family, he purchased the winery',
     image: '/images/Historical Photos/Copia di Presidente fondatore Sergio Bolla.jpg'
   },
@@ -37,8 +37,8 @@ const timelineData = [
   },
   {
     year: '1980s',
-    title: 'GLOBAL CONQUEST BEGINS',
-    description: 'Sergio\'s son, Pierluigi Bolla, takes over the helm of Valdo and leads the region\'s effort to conquest foreign markets, especially Germany, Japan, and the United States',
+    title: 'GLOBAL EXPANSION BEGINS',
+    description: 'Sergio\'s son, Pierluigi Bolla, takes over the helm of Valdo and leads the region\'s effort to expand foreign markets, especially Germany, Japan, and the United States',
     image: '/images/Historical Photos/Copia di valdo-90-famiglia-bolla-bn-1408x.jpg'
   },
   {
