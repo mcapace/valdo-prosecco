@@ -119,7 +119,7 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
               </div>
               
               {/* Right side - Wine details */}
-              <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-start overflow-y-auto">
+              <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-start overflow-y-auto max-h-[70vh] lg:max-h-none">
                 <div className="mb-6">
                   <h2 className="text-2xl lg:text-3xl font-semibold text-black mb-2">{wine.name}</h2>
                   <p className="text-lg text-red-600 font-semibold mb-4">{wine.subtitle}</p>

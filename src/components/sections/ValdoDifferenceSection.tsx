@@ -82,7 +82,7 @@ const ValdoDifferenceSection: React.FC = () => {
                     alt={item.alt}
                     width={400}
                     height={300}
-                    className="w-full h-56 object-cover"
+                    className="w-full h-56 object-cover object-top"
                   />
                 </div>
               </a>

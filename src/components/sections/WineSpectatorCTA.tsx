@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const WineSpectatorCTA: React.FC = () => {
   const handleClick = () => {
-    window.open('https://www.winespectator.com/articles/valdo-prosecco-100th-anniversary', '_blank');
+    window.open('https://www.winespectator.com/sponsored-articles/valdo-the-gold-standard-of-prosecco', '_blank');
   };
 
   return (
