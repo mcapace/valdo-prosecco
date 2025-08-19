@@ -74,23 +74,22 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
           <motion.div
-            className="bg-white rounded-lg shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden relative"
+            className="bg-white rounded-lg shadow-2xl w-full max-w-5xl max-h-[98vh] flex flex-col"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            style={{ maxHeight: '90vh' }}
           >
             {/* Close X Button - Top Right */}
             <motion.button
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-gold rounded-full flex items-center justify-center text-white font-bold text-lg hover:bg-gold/90 transition-colors shadow-lg"
+              className="absolute top-2 right-2 z-20 w-8 h-8 sm:w-10 sm:h-10 bg-gold rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg hover:bg-gold/90 transition-colors shadow-lg"
               onClick={onClose}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -101,9 +100,10 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
               ×
             </motion.button>
             
-            <div className="flex flex-col lg:flex-row h-full overflow-hidden">
-              {/* Left side - Bottle image */}
-              <div className="lg:w-1/2 p-4 lg:p-8 flex items-center justify-center bg-gradient-to-br from-beige-light to-beige flex-shrink-0">
+            {/* Mobile Layout */}
+            <div className="flex flex-col lg:hidden">
+              {/* Bottle image - Mobile */}
+              <div className="p-4 flex items-center justify-center bg-gradient-to-br from-beige-light to-beige">
                 <motion.div
                   initial={{ scale: 0.8, rotateY: -15 }}
                   animate={{ scale: 1, rotateY: 0 }}
@@ -114,21 +114,71 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
                     alt={wine.name}
                     width={500}
                     height={1000}
-                    className="w-auto h-[300px] sm:h-[350px] lg:h-[500px] drop-shadow-2xl"
+                    className="w-auto h-[250px] sm:h-[300px] drop-shadow-2xl"
+                  />
+                </motion.div>
+              </div>
+              
+              {/* Content - Mobile (Scrollable) */}
+              <div className="flex-1 overflow-y-auto p-4">
+                <div className="mb-4">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-black mb-2">{wine.name}</h2>
+                  <p className="text-base sm:text-lg text-red-600 font-semibold mb-4">{wine.subtitle}</p>
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-sm sm:text-base text-black font-normal leading-relaxed">
+                      {wine.description}
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-black mb-3">Key Features:</h3>
+                    <ul className="space-y-2">
+                      {wine.details.map((detail: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-red-600 font-bold mr-2 mt-1">•</span>
+                          <span className="text-xs sm:text-sm text-gray-700 font-normal leading-relaxed">
+                            {detail}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Desktop Layout */}
+            <div className="hidden lg:flex flex-row h-full">
+              {/* Left side - Bottle image */}
+              <div className="w-1/2 p-8 flex items-center justify-center bg-gradient-to-br from-beige-light to-beige">
+                <motion.div
+                  initial={{ scale: 0.8, rotateY: -15 }}
+                  animate={{ scale: 1, rotateY: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <Image
+                    src={wine.image}
+                    alt={wine.name}
+                    width={500}
+                    height={1000}
+                    className="w-auto h-[500px] drop-shadow-2xl"
                   />
                 </motion.div>
               </div>
               
               {/* Right side - Wine details */}
-              <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-start overflow-y-auto min-h-0">
+              <div className="w-1/2 p-8 flex flex-col justify-start overflow-y-auto">
                 <div className="mb-6">
-                  <h2 className="text-2xl lg:text-3xl font-semibold text-black mb-2">{wine.name}</h2>
+                  <h2 className="text-3xl font-semibold text-black mb-2">{wine.name}</h2>
                   <p className="text-lg text-red-600 font-semibold mb-4">{wine.subtitle}</p>
                 </div>
                 
                 <div className="space-y-6 flex-grow">
                   <div>
-                    <p className="text-base lg:text-lg text-black font-normal leading-relaxed">
+                    <p className="text-lg text-black font-normal leading-relaxed">
                       {wine.description}
                     </p>
                   </div>
@@ -139,7 +189,7 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
                       {wine.details.map((detail: string, index: number) => (
                         <li key={index} className="flex items-start">
                           <span className="text-red-600 font-bold mr-2 mt-1">•</span>
-                          <span className="text-sm lg:text-base text-gray-700 font-normal leading-relaxed">
+                          <span className="text-base text-gray-700 font-normal leading-relaxed">
                             {detail}
                           </span>
                         </li>
