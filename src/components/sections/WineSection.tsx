@@ -74,14 +74,14 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
           <motion.div
-            className="bg-white rounded-lg shadow-2xl w-full max-w-5xl h-[90vh] flex flex-col overflow-hidden"
+            className="fixed top-[5vh] left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl w-[95vw] max-w-5xl h-[90vh] flex flex-col overflow-hidden"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -89,7 +89,7 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
           >
             {/* Close X Button - Top Right */}
             <motion.button
-              className="absolute top-2 right-2 z-20 w-8 h-8 sm:w-10 sm:h-10 bg-gold rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg hover:bg-gold/90 transition-colors shadow-lg"
+              className="absolute top-2 right-2 z-30 w-8 h-8 sm:w-10 sm:h-10 bg-gold rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg hover:bg-gold/90 transition-colors shadow-lg"
               onClick={onClose}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
