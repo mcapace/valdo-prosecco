@@ -72,6 +72,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Favicon */}
+        <link rel="icon" type="image/jpeg" href="/images/Logos/WS Favicon.jpeg" />
+        <link rel="shortcut icon" type="image/jpeg" href="/images/Logos/WS Favicon.jpeg" />
+        <link rel="apple-touch-icon" href="/images/Logos/WS Favicon.jpeg" />
+        
         {/* Preload critical resources */}
         <link rel="preload" href="/images/Vineyards/Copia di colline.jpg" as="image" />
         <link rel="preload" href="/images/Logos/Valdo Logo New.png" as="image" />
