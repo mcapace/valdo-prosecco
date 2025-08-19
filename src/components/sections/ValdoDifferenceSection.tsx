@@ -67,7 +67,7 @@ const ValdoDifferenceSection: React.FC = () => {
         </div>
 
         {/* Six Differentiators Grid with Images */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {valdoDifferenceData.map((item) => (
             <div key={item.title} className="text-center">
               <a 
@@ -76,13 +76,17 @@ const ValdoDifferenceSection: React.FC = () => {
                 rel="noopener noreferrer"
                 className="block transition-transform duration-300 hover:scale-105"
               >
-                <div className="relative overflow-hidden rounded-lg shadow-lg mb-4">
+                <div className="relative overflow-hidden rounded-lg shadow-lg mb-4 aspect-[4/3]">
                   <Image
                     src={item.image}
                     alt={item.alt}
                     width={400}
                     height={300}
-                    className="w-full h-56 object-cover object-top"
+                    className="w-full h-full object-cover"
+                    style={{
+                      objectPosition: item.title === "DECADES OF FAMILY PARTNERSHIP" ? "center 30%" : "center center",
+                      objectFit: "cover"
+                    }}
                   />
                 </div>
               </a>

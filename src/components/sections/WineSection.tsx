@@ -86,6 +86,7 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
+            style={{ maxHeight: '90vh' }}
           >
             {/* Close X Button - Top Right */}
             <motion.button
@@ -100,9 +101,9 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
               ×
             </motion.button>
             
-            <div className="flex flex-col lg:flex-row h-full">
+            <div className="flex flex-col lg:flex-row h-full overflow-hidden">
               {/* Left side - Bottle image */}
-              <div className="lg:w-1/2 p-8 flex items-center justify-center bg-gradient-to-br from-beige-light to-beige">
+              <div className="lg:w-1/2 p-4 lg:p-8 flex items-center justify-center bg-gradient-to-br from-beige-light to-beige flex-shrink-0">
                 <motion.div
                   initial={{ scale: 0.8, rotateY: -15 }}
                   animate={{ scale: 1, rotateY: 0 }}
@@ -113,13 +114,13 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
                     alt={wine.name}
                     width={500}
                     height={1000}
-                    className="w-auto h-[400px] lg:h-[500px] drop-shadow-2xl"
+                    className="w-auto h-[300px] sm:h-[350px] lg:h-[500px] drop-shadow-2xl"
                   />
                 </motion.div>
               </div>
               
               {/* Right side - Wine details */}
-              <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-start overflow-y-auto max-h-[70vh] lg:max-h-none">
+              <div className="lg:w-1/2 p-6 lg:p-8 flex flex-col justify-start overflow-y-auto min-h-0">
                 <div className="mb-6">
                   <h2 className="text-2xl lg:text-3xl font-semibold text-black mb-2">{wine.name}</h2>
                   <p className="text-lg text-red-600 font-semibold mb-4">{wine.subtitle}</p>
