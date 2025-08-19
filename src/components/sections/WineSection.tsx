@@ -81,7 +81,7 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
           onClick={onClose}
         >
           <motion.div
-            className="bg-white rounded-lg shadow-2xl w-full max-w-5xl max-h-[98vh] flex flex-col"
+            className="bg-white rounded-lg shadow-2xl w-full max-w-5xl h-[90vh] flex flex-col overflow-hidden"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -101,9 +101,9 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
             </motion.button>
             
             {/* Mobile Layout */}
-            <div className="flex flex-col lg:hidden">
+            <div className="flex flex-col lg:hidden h-full">
               {/* Bottle image - Mobile */}
-              <div className="p-4 flex items-center justify-center bg-gradient-to-br from-beige-light to-beige">
+              <div className="flex-shrink-0 p-4 flex items-center justify-center bg-gradient-to-br from-beige-light to-beige">
                 <motion.div
                   initial={{ scale: 0.8, rotateY: -15 }}
                   animate={{ scale: 1, rotateY: 0 }}
@@ -114,13 +114,13 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
                     alt={wine.name}
                     width={500}
                     height={1000}
-                    className="w-auto h-[250px] sm:h-[300px] drop-shadow-2xl"
+                    className="w-auto h-[200px] sm:h-[250px] drop-shadow-2xl"
                   />
                 </motion.div>
               </div>
               
               {/* Content - Mobile (Scrollable) */}
-              <div className="flex-1 overflow-y-auto p-4">
+              <div className="flex-1 overflow-y-auto p-4 min-h-0">
                 <div className="mb-4">
                   <h2 className="text-xl sm:text-2xl font-semibold text-black mb-2">{wine.name}</h2>
                   <p className="text-base sm:text-lg text-red-600 font-semibold mb-4">{wine.subtitle}</p>
