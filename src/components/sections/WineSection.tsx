@@ -74,14 +74,14 @@ const WineModal = ({ wine, isOpen, onClose }: { wine: any; isOpen: boolean; onCl
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
           <motion.div
-            className="fixed top-[5vh] left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl w-[95vw] max-w-5xl h-[90vh] flex flex-col overflow-hidden"
+            className="bg-white rounded-lg shadow-2xl w-full max-w-5xl h-[90vh] flex flex-col overflow-hidden"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
