@@ -1,7 +1,7 @@
 import Navigation from '@/components/common/Navigation';
 import HeroSection from '@/components/sections/HeroSection';
 import TimelineSection from '@/components/sections/TimelineSection';
-import WineSpectatorCTA from '@/components/sections/WineSpectatorCTA';
+import HeritageCTA from '@/components/sections/WineSpectatorCTA';
 import ValdobbiadeneSection from '@/components/sections/ValdobbiadeneSection';
 import ValdoDifferenceSection from '@/components/sections/ValdoDifferenceSection';
 import WineSection from '@/components/sections/WineSection';
@@ -19,7 +19,7 @@ export default function ValdoLandingPage() {
       <div id="timeline">
         <TimelineSection />
       </div>
-      <WineSpectatorCTA />
+      <HeritageCTA />
       <div id="valdobbiadene">
         <ValdobbiadeneSection />
       </div>
