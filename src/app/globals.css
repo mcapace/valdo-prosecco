@@ -213,7 +213,7 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  padding-top: 64px; /* Account for fixed navigation */
+  padding-top: 96px; /* Account for fixed navigation (64px) + sponsored banner (32px) */
   /* Windows display scaling fixes */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
