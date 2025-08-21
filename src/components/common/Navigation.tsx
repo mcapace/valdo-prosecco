@@ -33,21 +33,54 @@ const Navigation = () => {
   };
 
   return (
-    <nav
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 9999,
-        height: '64px',
-        display: 'flex',
-        alignItems: 'center',
-        transition: 'all 0.5s ease',
-        backgroundColor: '#98231f',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.2)'
-      }}
-    >
+    <>
+      {/* Professional Sponsor Banner */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 10000,
+          height: '36px',
+          backgroundColor: '#1a1a1a',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(10px)'
+        }}
+      >
+        <span
+          style={{
+            color: '#ffffff',
+            fontSize: '13px',
+            fontWeight: '500',
+            letterSpacing: '0.8px',
+            textTransform: 'uppercase',
+            fontFamily: 'Inter, system-ui, sans-serif',
+            opacity: '0.95'
+          }}
+        >
+          From our Sponsor, Valdo
+        </span>
+      </div>
+      
+      <nav
+        style={{
+          position: 'fixed',
+          top: '36px',
+          left: 0,
+          right: 0,
+          zIndex: 9999,
+          height: '64px',
+          display: 'flex',
+          alignItems: 'center',
+          transition: 'all 0.5s ease',
+          backgroundColor: '#98231f',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.2)'
+        }}
+      >
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
@@ -123,30 +156,7 @@ const Navigation = () => {
             </button>
           ))}
           
-          {/* Sponsored Content Label */}
-          <div style={{ 
-            marginLeft: '16px', 
-            display: 'flex', 
-            alignItems: 'center',
-            padding: '6px 12px',
-            backgroundColor: 'rgba(255, 255, 255, 0.15)',
-            borderRadius: '6px',
-            border: '1px solid rgba(255, 255, 255, 0.25)',
-            backdropFilter: 'blur(10px)',
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
-          }}>
-            <span style={{
-              color: '#ffffff',
-              fontSize: '12px',
-              fontWeight: '600',
-              letterSpacing: '0.8px',
-              textTransform: 'uppercase',
-              opacity: '0.95',
-              fontFamily: 'Inter, system-ui, sans-serif'
-            }}>
-              Sponsored by Valdo
-            </span>
-          </div>
+
           
           {/* OCM Logo */}
           <div style={{ marginLeft: '16px', display: 'flex', alignItems: 'center' }}>
@@ -249,8 +259,9 @@ const Navigation = () => {
           }
         }
       `}</style>
-    </nav>
-  );
-};
+        </nav>
+      </>
+    );
+  };
 
 export default Navigation; 
