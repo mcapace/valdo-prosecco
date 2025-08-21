@@ -90,42 +90,26 @@ const Navigation = () => {
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
-        {/* Logo and Sponsored Text */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <button 
-            onClick={scrollToTop}
-            style={{ 
-              display: 'flex', 
-              alignItems: 'center',
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              padding: '4px',
-              borderRadius: '4px',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            <img 
-              src="/images/Logos/WS White.png" 
-              alt="Wine Spectator" 
-              style={{ height: '48px' }}
-            />
-          </button>
-          
-          {/* Sponsored Text */}
-          <span
-            style={{
-              color: '#ffffff',
-              fontSize: '11px',
-              fontWeight: '500',
-              letterSpacing: '0.5px',
-              textTransform: 'uppercase',
-              opacity: '0.9'
-            }}
-          >
-            From our Partner, Valdo
-          </span>
-        </div>
+        {/* Logo */}
+        <button 
+          onClick={scrollToTop}
+          style={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '4px',
+            borderRadius: '4px',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          <img 
+            src="/images/Logos/WS White.png" 
+            alt="Wine Spectator" 
+            style={{ height: '48px' }}
+          />
+        </button>
 
         {/* Desktop Navigation */}
         <div 
