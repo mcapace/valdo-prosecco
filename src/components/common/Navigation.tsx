@@ -62,7 +62,7 @@ const Navigation = () => {
             opacity: '0.95'
           }}
         >
-          From our Sponsor, Valdo
+          From our Sponsor: Valdo
         </span>
       </div>
       
