@@ -4,6 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const HeritageCTA: React.FC = () => {
+  const handleClick = () => {
+    window.open('https://www.winespectator.com/sponsored-articles/valdo-the-gold-standard-of-prosecco', '_blank');
+  };
+
   return (
     <section className="relative py-12">
       {/* Content */}
@@ -16,7 +20,10 @@ const HeritageCTA: React.FC = () => {
         >
           {/* Heritage Content Container */}
           <motion.div
-            className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg p-8 transition-all duration-300 shadow-sm hover:shadow-md"
+            className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-lg p-8 cursor-pointer hover:bg-white/90 hover:border-gray-300 transition-all duration-300 shadow-sm hover:shadow-md"
+            onClick={handleClick}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -54,10 +61,13 @@ const HeritageCTA: React.FC = () => {
               <p className="text-lg text-black font-medium mb-3">
                 A Century of Excellence
               </p>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed mb-4">
                 Since 1926, Valdo has been crafting exceptional Prosecco in the heart of Valdobbiadene, 
                 maintaining the highest standards of quality and tradition that have made it a benchmark 
                 for Italian sparkling wines worldwide.
+              </p>
+              <p className="text-xs text-gray-500 font-medium">
+                Read more about our story →
               </p>
             </motion.div>
           </motion.div>
