@@ -66,9 +66,13 @@ const HeritageCTA: React.FC = () => {
                 maintaining the highest standards of quality and tradition that have made it a benchmark 
                 for Italian sparkling wines worldwide.
               </p>
-              <p className="text-xs text-gray-500 font-medium">
+              <motion.button
+                className="inline-flex items-center px-4 py-2 bg-gold text-white text-sm font-medium rounded-md hover:bg-gold/90 transition-colors duration-200 shadow-sm hover:shadow-md"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Read more about our story →
-              </p>
+              </motion.button>
             </motion.div>
           </motion.div>
         </motion.div>
